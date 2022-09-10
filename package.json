@@ -1,0 +1,36 @@
+{
+  "name": "digitalbuildings1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terencesmithcodes/digitalbuildings1.git"
+  },
+  "keywords": [],
+  "author": "Jeremiah Wise <jwise.x7@gmail.com> Terence Smith <Terencesmith1@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/terencesmithcodes/digitalbuildings1/issues"
+  },
+  "homepage": "https://github.com/terencesmithcodes/digitalbuildings1#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.4.0",
+    "nodemon": "^2.0.19"
+  }
+}
