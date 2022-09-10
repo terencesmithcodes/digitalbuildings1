@@ -2,7 +2,7 @@
 module.exports = {
   content: ["./src/**/*.{html,jsx}"],
   theme: {
-        extend: {
+    extend: {
       animation: {
         blob: "blob 7s infinite",
       },
@@ -24,6 +24,6 @@ module.exports = {
       },
     },
   },
-  
+
   plugins: [],
 };
