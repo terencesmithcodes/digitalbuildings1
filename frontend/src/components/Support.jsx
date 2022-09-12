@@ -8,8 +8,8 @@ import supportHero from "../assets/support.jpg";
 
 const Support = () => {
   return (
-    <div name='support' className="w-full h-screen mt-24">
-      <div className="w-full h-[700px] bg-gray-900/50 absolute">
+    <div name="support" className="w-full h-screen mt-24">
+      <div className="w-full h-[1328px] bg-gray-900/50 absolute">
         <img
           className="w-full h-full object-cover mix-blend-overlay"
           src={supportHero}
@@ -18,14 +18,14 @@ const Support = () => {
       </div>
 
       <div className="max-w-[1240px] mx-auto text-white relative">
-        <div className="px-4 py=12">
-          <h2 className="text-5xl text-slate-300 uppercase text-center">
+        <div className="px-4 py-12">
+          <h2 className="text-5xl text-white uppercase text-center font-bold pt-4">
             Support
           </h2>
-          <h2 className="py-4 text-3xl text-slate-300">
-            Your team for Data Analytics and Diagnostics knowledge and support
+          <h2 className="py-4 text-3xl text-white text-center font-bold">
+            Your Team for Data Analytics and Diagnostics Knowledge and Support
           </h2>
-          <p className="test-3xl font-bold py-6 text-center">
+          <p className="text-3xl font-bold py-6 text-center">
             Digital Buildings has deep experience leveraging the unique
             strengths of Data Analytics and Diaganostics to unlock disparate
             edge data. This opens infinite opportunities to architect IoT
@@ -35,7 +35,7 @@ const Support = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 relative gap-x-8 gapy-y-16 px-4 pt-12 sm:pt-20 text-black">
+      <div className="grid grid-cols-1 lg:grid-cols-3 relative gap-x-8 gap-y-16 px-4 pt-12 sm:pt-20 text-black">
         <div className="bg-white rounded-xl shadow-2xl">
           <div className="p-8">
             <PhoneIcon className="w-16 p-4 bg-indigo-600 text-white rounded-lg mt-[-4rem]" />
@@ -46,7 +46,7 @@ const Support = () => {
               perspiciatis!
             </p>
           </div>
-          <div className="bg-slate-100 pl-8 py-4">
+          <div className="bg-slate-100 pl-8 py-4 rounded-xl">
             <p className=" flex items-center text-indigo-600">
               Contact Us <ArrowSmRightIcon className="w-5 ml-2" />
             </p>
@@ -62,7 +62,7 @@ const Support = () => {
               perspiciatis!
             </p>
           </div>
-          <div className="bg-slate-100 pl-8 py-4">
+          <div className="bg-slate-100 pl-8 py-4 rounded-xl">
             <p className=" flex items-center text-indigo-600">
               Contact Us <ArrowSmRightIcon className="w-5 ml-2" />
             </p>
@@ -78,7 +78,7 @@ const Support = () => {
               perspiciatis!
             </p>
           </div>
-          <div className="bg-slate-100 pl-8 py-4">
+          <div className="bg-slate-100 pl-8 py-4 rounded-xl">
             <p className=" flex items-center text-indigo-600">
               Contact Us <ArrowSmRightIcon className="w-5 ml-2" />
             </p>

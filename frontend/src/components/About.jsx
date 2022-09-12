@@ -3,17 +3,17 @@ import React from "react";
 const About = () => {
   return (
     <div name='about' className="w-full my-32">
-      <div className="max-w-[2160px] mx-auto">
+      <div className="max-w-[1240px] mx-auto">
         <div className="text-center">
           <h2 className="text-5xl font-bold text-indigo-600">
-            Digital Buildings
+            Digital Building Analytics
           </h2>
           <p className="text-3xl py-6 text-gray-500">
-            Technology and services as extraordinary as the people behind them.
+            Technology and Services as Extraordinary as the People Behind Them.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-14 p-2 text-center">
+        <div className="grid md:grid-cols-3 gap-14 p-4 text-center">
           <div className="border p-8 rounded-xl shadow-xl">
             <h2 className="text-3xl font-bold text-indigo-600">Data Model</h2>
             <p className="text-gray-400 mt-2">
