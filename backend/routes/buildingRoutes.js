@@ -6,7 +6,7 @@ const {getBuilding, getBuildingPoints, getBuildingEquipment, getBuildingEquipmen
 
 router.get('/:id', getBuilding)
 router.get('/:id/points', getBuildingPoints)
-// router.get('/types', getBuildingTypes)
+router.get('/types', getBuildingTypes)
 router.get('/:id/equipment', getBuildingEquipment)
 router.get('/:id/equipment/classes', getBuildingEquipmentClasses)
 router.get('/:id/equipment/classes/:classId', getBuildingEquipmentClass)

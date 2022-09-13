@@ -5,7 +5,7 @@ const { validate } = require('../models/userModel')
 
 
 const URL = 'https://rest.buildingsapi.net/core-base/Buildings/'
-const URLTYPES = 'https://rest.buildingsapi.net/core-base/buildingtypes/15'
+const URLTYPES = 'https://rest.buildingsapi.net/core-base/buildingtypes/'
 
 valHeader = {
   'Content-Type' : 'application/json',
@@ -27,12 +27,12 @@ const getBuildingPoints = asyncHandler(async(req, res)=>{
   res.status(200).json(response.data)
 })
 
-// const getBuildingTypes = asyncHandler(async(req, res)=>{
-//   const response = await axios.get(URLTYPES,{
-//     headers: valHeader
-//   })
-//   res.status(200).json(response.data)
-// })
+const getBuildingTypes = asyncHandler(async(req, res)=>{
+  const response = await axios.get(URLTYPES,{
+    headers: valHeader
+  })
+  res.status(200).json(response.data)
+})
 
 
 
@@ -82,7 +82,7 @@ const getBuildingEquipmentPoints = asyncHandler(async(req, res)=>{
 module.exports = {
   getBuilding,
   getBuildingPoints,
-  // getBuildingTypes,
+  getBuildingTypes,
   getBuildingEquipment,
   getBuildingEquipmentClasses,
   getBuildingEquipmentClass,
