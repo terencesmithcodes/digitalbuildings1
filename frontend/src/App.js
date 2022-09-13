@@ -2,6 +2,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./routes/Home";
 import Login from "./routes/Login";
+import Admin from "./routes/Admin";
+import Energy from "./routes/Energy";
+import Facility from "./routes/Facility";
 
 
 import { Routes, Route } from "react-router-dom";
@@ -14,6 +17,9 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/Admin" element={<Admin />} />
+        <Route path="/Energy" element={<Energy />} />
+        <Route path="/Facility" element={<Facility />} />
       </Routes>
       
 
