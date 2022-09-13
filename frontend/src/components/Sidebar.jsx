@@ -29,7 +29,11 @@ const Sidebar = () => {
           onClick={() => setOpen(!open)}
         />
         <div className="flex gap-x-4 items-center">
-          <FaRegUser className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"}`} />
+          <FaRegUser
+            className={`cursor-pointer duration-500 ${
+              open && "rotate-[360deg]"
+            }`}
+          />
           <h1
             className={`text-indigo-600 origin-left font-medium text-xl duration-300 ${
               !open && "scale-0"
@@ -47,13 +51,46 @@ const Sidebar = () => {
               dashhMenu.gap ? "mt-9" : "mt-2"
             }`}
             >
-              <span className={`${!open && 'hidden'} origin-left duration-200`}> {dashhMenu.title}</span>
+              <span className={`${!open && "hidden"} origin-left duration-200`}>
+                {" "}
+                {dashhMenu.title}
+              </span>
             </li>
           ))}
         </ul>
       </div>
       <div className="p-7 text-2xl font-semibold flex-1 h-screen">
         <h1>Dashboard</h1>
+        <div className="relative w-full h-screen">
+          <form className="max-w-[800px] w-full mx-auto bg-zinc-200 p-8 rounded-xl drop-shadow-xl">
+            <h2 className="text=4xl font-bold text-center py-2">
+              User Account
+            </h2>
+            <div className="flex flex-col mb-4">
+              <label>First Name</label>
+              <input className="border relative bg-gray-100 py-2" type="text" />
+            </div>
+            <div className="flex flex-col">
+              <label>Last Name</label>
+              <input className="border relative bg-gray-100 py-2" type="text" />
+            </div>
+            <div className="flex flex-col mb-4">
+              <label>Username</label>
+              <input className="border relative bg-gray-100 py-2" type="text" />
+            </div>
+            <div className="flex flex-col mb-4">
+              <label>Password</label>
+              <input
+                className="border relative bg-gray-100 py-2"
+                type="password"
+              />
+            </div>
+
+            <button className="w-full py-3 mt-8 bg-indigo-600 hover:bg-indigo-500 relative text-white">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
