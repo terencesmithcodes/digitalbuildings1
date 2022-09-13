@@ -9,9 +9,9 @@ import supportHero from "../assets/support.jpg";
 const Support = () => {
   return (
     <div name="support" className="w-full h-screen mt-24">
-      <div className="w-full h-[1328px] bg-gray-900/50 absolute">
+      <div className="w-full h-[1272px] bg-gray-900/50 absolute">
         <img
-          className="w-full h-full object-cover mix-blend-overlay"
+          className="w-full h-full object-fill mix-blend-overlay"
           src={supportHero}
           alt="support"
         />
