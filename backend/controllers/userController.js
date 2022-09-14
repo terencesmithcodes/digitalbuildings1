@@ -12,15 +12,19 @@ const timesToSaltPW = 10
 //@access Private
 const createNewUser = asyncHandler(async(req, res) =>{
   const {username, email, password, role} = req.body
+  console.log('create')
+  
 
   if (!username || !password || !email || !role){
     res.status(400)
+    console.log('no data')
     throw new Error('Please add all fields')
   }
 
   const userExist = await User.findOne({username})
 
   if(userExist){
+    console.log('I exist')
     res.status(400)
     throw new Error('User already exist')
   }
@@ -29,13 +33,16 @@ const createNewUser = asyncHandler(async(req, res) =>{
 
   const salt = await bcrypt.genSalt(timesToSaltPW)
   const hashedPassword = await bcrypt.hash(password, salt)
-
+  
+  
   const user = await User.create({
     username,
     email,
     password: hashedPassword,
     role
   })
+
+  console.log(`user: ${user.username} `)
 
   if(user){
     res.status(201).json({
