@@ -5,6 +5,7 @@ import Login from "./routes/Login";
 import Admin from "./routes/Admin";
 import Energy from "./routes/Energy";
 import Facility from "./routes/Facility";
+import RegisterTest from "./routes/RegisterTest";
 
 
 import { Routes, Route } from "react-router-dom";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/Admin" element={<Admin />} />
         <Route path="/Energy" element={<Energy />} />
         <Route path="/Facility" element={<Facility />} />
+        <Route path="/Register" element={<RegisterTest />} />
       </Routes>
       
 
