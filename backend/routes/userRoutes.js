@@ -9,7 +9,7 @@ router.post('/create', createNewUser)
 
 router.post('/login', loginUser)
 
-router.put(':id', updateUser)
+router.put(':id', protect, updateUser)
 
 router.get('/me', protect, getMe)
 

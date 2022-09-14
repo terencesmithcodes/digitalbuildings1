@@ -1,6 +1,7 @@
 {
   "name": "digitalbuildings1",
   "version": "0.1.0",
+  "proxy": "http://localhost:5500/",
   "private": true,
   "dependencies": {
     "@heroicons/react": "^1.0.6",

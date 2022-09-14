@@ -11,9 +11,9 @@ const timesToSaltPW = 10
 // @route POST /api/users/create
 //@access Private
 const createNewUser = asyncHandler(async(req, res) =>{
-  const {username, password, role} = req.body
+  const {username, email, password, role} = req.body
 
-  if (!username || !password || !role){
+  if (!username || !password || !email || !role){
     res.status(400)
     throw new Error('Please add all fields')
   }
@@ -32,6 +32,7 @@ const createNewUser = asyncHandler(async(req, res) =>{
 
   const user = await User.create({
     username,
+    email,
     password: hashedPassword,
     role
   })
@@ -40,15 +41,13 @@ const createNewUser = asyncHandler(async(req, res) =>{
     res.status(201).json({
       _id: user.id,
       username: user.username,
+      email: user.email,
       role: user.role,
     })
   }else{
     res.status(400)
     throw new Error('Invalid user data')
   }
-
-  res.json({message: 'Create User'})
-
 })
 
 // @desc Autenticate a user
@@ -85,11 +84,12 @@ const updateUser = asyncHandler(async(req, res) =>{
 //@access Private
 const getMe = asyncHandler(async(req, res) =>{
   // we get the id from the auth middlware
-  const {_id, username, role} = await User.findById(req.user.id)
+  const {_id, username, email, role} = await User.findById(req.user.id)
 
   res.status(200).json({
     id: _id,
     username,
+    email,
     role
   })
 })
