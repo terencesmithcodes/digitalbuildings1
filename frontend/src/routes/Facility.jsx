@@ -1,13 +1,14 @@
 import React from 'react'
+import FacilityDash from '../components/FacilityDash';
 
 
 
-import Sidebar from "../components/Sidebar";
+
 
 const FacilityRoute = () => {
   return (
     <>
-          <Sidebar />
+          <FacilityDash />
         
     </>
   );

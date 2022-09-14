@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import Selector from './Selector';
+import { FaArrowLeft, FaRegUser } from "react-icons/fa";
 
-import { FaArrowLeft, FaRegUser} from "react-icons/fa";
+const FacilityDash = () => {
 
-const Sidebar = () => {
-  const [open, setOpen] = useState(true);
+const [open, setOpen] = useState(true);
   const Dash = [
     { title: "Home", src: "Home" },
     { title: "Dashboard", src: "Chart_fill" },
@@ -61,44 +60,27 @@ const Sidebar = () => {
         </ul>
       </div>
       <div className="p-7 text-2xl font-semibold flex-1 h-screen">
-        <h1>Admin Dashboard</h1>
+        <h1>Facility Engineer Dashboard</h1>
         <div className="relative w-full h-screen">
-          <form className="max-w-[800px] w-full mx-auto bg-zinc-200 p-8 rounded-xl drop-shadow-xl">
-            <h2 className="text=4xl font-bold text-center py-2">
-              User Account
-            </h2>
-            <div className="flex flex-col mb-4">
-              <label>Username</label>
-              <input className="border relative bg-gray-100 py-2" type="text" />
-            </div>
-            <div className="flex flex-col mb-4">
-              <label>Password</label>
-              <input
-                className="border relative bg-gray-100 py-2"
-                type="password"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label>Email</label>
-              <input
-                className="border relative bg-gray-100 py-2"
-                type="email"
-              />
-            </div>
-
-            <div className="flex flex-col">
-              {/* <label>Roles</label> */}
-              <Selector />
-            </div>
-
-            <button className="w-full py-3 mt-16 bg-indigo-600 hover:bg-indigo-500 relative text-white">
-              Submit
-            </button>
-          </form>
+          <div>Building Map</div>
+          <div>
+            <h1>Building Details</h1>
+            <h3>Building Name:{'name' }</h3>
+            <h3>Address:{'address' }</h3>
+            <h3>Building Size{'size' }</h3>
+            <h3>Building Type:{'Type' }</h3>
+            <h3>Building Class:{'Class' }</h3>
+          </div>
+          <div>Equipment Count by Class: Chartjs</div>
+          <div>Equipment Count by Type: Chartjs</div>
+            <div>Equipment with faults: { 'fault count'}</div>
+          <div>PointCount by Class: Chartjs</div>
         </div>
       </div>
     </div>
   );
 }
+  
 
-export default Sidebar
+
+export default FacilityDash
