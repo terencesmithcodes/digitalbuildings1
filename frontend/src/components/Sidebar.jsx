@@ -24,7 +24,7 @@ const Sidebar = () => {
         } duration-300 h-screen p-5 pt-8 bg-zinc-200 relative`}
       >
         <FaArrowLeft
-          className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 border-indigo-600 ${
+          className={`absolute cursor-pointer rounded-full -right-3 top-9 w-8 h-8 p-1 border-2 border-indigo-600  text-indigo-600 ${
             !open && "rotate-180"
           }`}
           onClick={() => setOpen(!open)}
