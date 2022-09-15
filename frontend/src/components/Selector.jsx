@@ -8,7 +8,7 @@ const Selector = () => {
     { label: 'Facility Manager', value: 'Energy Analyst' },
   ]
 
-  const [value, setValue] = useState('fruit');
+  const [value, setValue] = useState();
 
   const handleChange = (event) => {
     setValue(event.target.value);
