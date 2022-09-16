@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FaArrowLeft, FaRegUser } from "react-icons/fa";
+import LeafMap from './LeafMap';
 
 const FacilityDash = () => {
 
@@ -59,43 +60,48 @@ const [open, setOpen] = useState(true);
           ))}
         </ul>
       </div>
-      {/* <h1>Facility Engineer Dashboard</h1> */}
-      <div className="w-full h-screen bg-white flex flex-col justify-between">
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-[1240px] m-4">
-          <div className="flex flex-col justify-start md:items-start w-full px-2 py-16 border-2 border-indigo-600 rounded-xl">
-            <h1 className="py-3 text-5xl md:text-5xl font-bold">
-              Building Map
-            </h1>
-          </div>
-          <div className="flex flex-col justify-start md:items-start w-full px-2 py-8 border-2 border-indigo-600 rounded-xl">
-            <h1 className="py-3 text-5xl md:text-5xl font-bold">
-              Building Details
-            </h1>
-            <h2>Building Name</h2>
-            <h2>Address</h2>
-            <h2>Size</h2>
-            <h2>Type</h2>
-            <h2>Class</h2>
-          </div>
-          <div className="flex flex-col justify-start md:items-start w-full px-2 py-8 border-2 border-indigo-600 rounded-xl">
-            <h1 className="py-3 text-5xl md:text-5xl font-bold">
-              Building Details
-            </h1>
-            <h2>Building Name</h2>
-            <h2>Address</h2>
-            <h2>Size</h2>
-            <h2>Type</h2>
-            <h2>Class</h2>
-          </div>
-          <div className="flex flex-col justify-start md:items-start w-full px-2 py-8 border-2 border-indigo-600 rounded-xl">
-            <h1 className="py-3 text-5xl md:text-5xl font-bold">
-              Building Details
-            </h1>
-            <h2>Building Name</h2>
-            <h2>Address</h2>
-            <h2>Size</h2>
-            <h2>Type</h2>
-            <h2>Class</h2>
+      <div className="w-full h-screen bg-white flex flex-col">
+        <h1 className="mt-2 mb-2 font-bold text-3xl  text-center">
+          Facility Engineer Dashboard
+        </h1>
+        <div className="flex justify-center w-full h-screen">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-4 w-full max-w-[1240px] m-2 ">
+            <div className="flex flex-col md:items-start col-span-2 px-2 py-2 border-2 h-[600px] border-indigo-200 rounded-xl">
+              <h1 className="py-3 text-3xl md:text-2xl font-bold">
+                Building Map
+              </h1>
+              <LeafMap />
+            </div>
+            <div className="flex flex-col justify-start md:items-start w-full px-2 py-2 border-2 border-indigo-200 rounded-xl">
+              <h1 className="py-3 text-3xl md:text-2xl font-bold">
+                Building Details
+              </h1>
+              <h2>Building Name</h2>
+              <h2>Address</h2>
+              <h2>Size</h2>
+              <h2>Type</h2>
+              <h2>Class</h2>
+            </div>
+            <div className="flex flex-col justify-start md:items-start w-full px-2 py-8 border-2 border-indigo-200 rounded-xl">
+              <h1 className="py-3 text-5xl md:text-5xl font-bold">
+                Building Details
+              </h1>
+              <h2>Building Name</h2>
+              <h2>Address</h2>
+              <h2>Size</h2>
+              <h2>Type</h2>
+              <h2>Class</h2>
+            </div>
+            <div className="flex flex-col justify-start md:items-start w-full px-2 py-8 border-2 border-indigo-200 rounded-xl">
+              <h1 className="py-3 text-5xl md:text-5xl font-bold">
+                Building Details
+              </h1>
+              <h2>Building Name</h2>
+              <h2>Address</h2>
+              <h2>Size</h2>
+              <h2>Type</h2>
+              <h2>Class</h2>
+            </div>
           </div>
         </div>
       </div>
