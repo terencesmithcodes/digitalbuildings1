@@ -8,7 +8,7 @@ import { register, reset, logout } from "../features/auth/authSlice";
 
 import { FaArrowLeft, FaRegUser} from "react-icons/fa";
 
-const Sidebar = () => {
+const AdminDash = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
@@ -107,9 +107,8 @@ const Sidebar = () => {
             <li
               key={index}
               className={`text-indigo-600 text-sm flex items-center 
-            gap-x-4 cursor-pointer p-2 hover:bg-indigo-100 rounded-md ${
-              dashhMenu.gap ? "mt-9" : "mt-2"
-            }`}
+            gap-x-4 cursor-pointer p-2 hover:bg-indigo-100 rounded-md 
+            ${dashhMenu.gap ? "mt-9" : "mt-2"}`}
             >
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 {" "}
@@ -120,7 +119,7 @@ const Sidebar = () => {
         </ul>
       </div>
       <div className="p-7 text-2xl font-semibold flex-1 h-screen">
-        <h1>Admin Dashboard</h1>
+        <h1 className="mb-5 text-center">Admin Dashboard</h1>
         <div className="relative w-full h-screen">
           <form
             onSubmit={onSubmit}
@@ -199,17 +198,19 @@ const Sidebar = () => {
               Submit
             </button>
           </form>
-          <button
-            onClick={() => dispatch(logout())}
-            type="submit"
-            className="w-full py-3 mt-16 bg-indigo-600 hover:bg-indigo-500 relative text-white"
-          >
-            Log Out
-          </button>
+          <div className="max-w-[600px] w-full mx-auto">
+            <button
+              onClick={() => dispatch(logout())}
+              type="submit"
+              className="w-full py-3 mt-8 bg-indigo-600 hover:bg-indigo-500 relative text-white"
+            >
+              Log Out
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default Sidebar
+export default AdminDash

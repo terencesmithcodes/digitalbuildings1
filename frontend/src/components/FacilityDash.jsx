@@ -59,22 +59,44 @@ const [open, setOpen] = useState(true);
           ))}
         </ul>
       </div>
-      <div className="p-7 text-2xl font-semibold flex-1 h-screen">
-        <h1>Facility Engineer Dashboard</h1>
-        <div className="relative w-full h-screen">
-          <div>Building Map</div>
-          <div>
-            <h1>Building Details</h1>
-            <h3>Building Name:{'name' }</h3>
-            <h3>Address:{'address' }</h3>
-            <h3>Building Size{'size' }</h3>
-            <h3>Building Type:{'Type' }</h3>
-            <h3>Building Class:{'Class' }</h3>
+      {/* <h1>Facility Engineer Dashboard</h1> */}
+      <div className="w-full h-screen bg-white flex flex-col justify-between">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-[1240px] m-4">
+          <div className="flex flex-col justify-start md:items-start w-full px-2 py-16 border-2 border-indigo-600 rounded-xl">
+            <h1 className="py-3 text-5xl md:text-5xl font-bold">
+              Building Map
+            </h1>
           </div>
-          <div>Equipment Count by Class: Chartjs</div>
-          <div>Equipment Count by Type: Chartjs</div>
-            <div>Equipment with faults: { 'fault count'}</div>
-          <div>PointCount by Class: Chartjs</div>
+          <div className="flex flex-col justify-start md:items-start w-full px-2 py-8 border-2 border-indigo-600 rounded-xl">
+            <h1 className="py-3 text-5xl md:text-5xl font-bold">
+              Building Details
+            </h1>
+            <h2>Building Name</h2>
+            <h2>Address</h2>
+            <h2>Size</h2>
+            <h2>Type</h2>
+            <h2>Class</h2>
+          </div>
+          <div className="flex flex-col justify-start md:items-start w-full px-2 py-8 border-2 border-indigo-600 rounded-xl">
+            <h1 className="py-3 text-5xl md:text-5xl font-bold">
+              Building Details
+            </h1>
+            <h2>Building Name</h2>
+            <h2>Address</h2>
+            <h2>Size</h2>
+            <h2>Type</h2>
+            <h2>Class</h2>
+          </div>
+          <div className="flex flex-col justify-start md:items-start w-full px-2 py-8 border-2 border-indigo-600 rounded-xl">
+            <h1 className="py-3 text-5xl md:text-5xl font-bold">
+              Building Details
+            </h1>
+            <h2>Building Name</h2>
+            <h2>Address</h2>
+            <h2>Size</h2>
+            <h2>Type</h2>
+            <h2>Class</h2>
+          </div>
         </div>
       </div>
     </div>

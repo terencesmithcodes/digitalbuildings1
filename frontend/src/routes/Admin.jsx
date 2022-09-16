@@ -2,14 +2,14 @@ import React from 'react'
 
 
 
-import Sidebar from '../components/Sidebar'
+import AdminDash from '../components/AdminDash'
 
 
 
 const AdminRoute = () => {
   return (
     <>
-      <Sidebar /> 
+      <AdminDash /> 
     </>
   );
 }
