@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { FaArrowLeft, FaRegUser } from "react-icons/fa";
-import LeafMap from './LeafMap';
+import { getEngBuilding, reset } from "../features/engineer/engineerSlice";
+import LeafMap from "./LeafMap";
 // import BarChart from './BarChart';
 
 const FacilityDash = () => {
-
-const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true);
   const Dash = [
     { title: "Home", src: "Home" },
     { title: "Dashboard", src: "Chart_fill" },
-    { title: "Accounts", src: "User", gap:true },
+    { title: "Accounts", src: "User", gap: true },
     { title: "Diagnostics", src: "Facility" },
     { title: "Energy", src: "Analyst" },
     { title: "Messages", src: "Chat" },
-    { title: "Messages", src: "Chat", gap:true},
+    { title: "Messages", src: "Chat", gap: true },
     { title: "Messages", src: "Chat" },
-    
-  ]
+  ];
   return (
     <div className="flex">
       <div
@@ -87,7 +87,7 @@ const [open, setOpen] = useState(true);
               <h1 className="py-3 text-5xl md:text-5xl font-bold">
                 Equipment by Class
               </h1>
-                {/* <BarChart chartData={} /> */}
+              {/* <BarChart chartData={} /> */}
             </div>
             <div className="flex flex-col justify-start md:items-start w-full px-2 py-8 border-2 border-indigo-200 rounded-xl">
               <h1 className="py-3 text-5xl md:text-5xl font-bold">
@@ -104,8 +104,6 @@ const [open, setOpen] = useState(true);
       </div>
     </div>
   );
-}
-  
+};
 
-
-export default FacilityDash
+export default FacilityDash;
