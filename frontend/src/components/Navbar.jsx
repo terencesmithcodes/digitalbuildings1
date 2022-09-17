@@ -39,12 +39,15 @@ const Navbar = () => {
                 Support
               </Link>
             </li>
+
           </ul>
         </div>
         <div className="hidden md:flex pr-4">
-          <button className="border-none bg-transparent text-black mr-4">
-            Sign In
-          </button>
+          <Link to="login">
+            <button className="border-none bg-transparent text-black mr-4">
+              Sign In
+            </button>
+          </Link>
           {/* <button className="px-8 py-3">Sign Up</button> */}
         </div>
         <div className="md:hidden mr-4" onClick={handleClick}>
@@ -80,11 +83,12 @@ const Navbar = () => {
           </Link>
         </li>
         <div className="flex flex-col my-4">
-          <Link to="/login"><button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
+          <Link to='/login'>
+            <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
             Sign In
-          </button>
+            </button>
           </Link>
-          {/* <button className="px-8 py-3">Sign Up</button> */}
+          <button className="px-8 py-3">Sign Up</button>
         </div>
       </ul>
     </div>
