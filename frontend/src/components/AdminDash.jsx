@@ -65,8 +65,8 @@ const AdminDash = () => {
 
   const Dash = [
     { title: "Home", src: "Home" },
-    { title: "Dashboard", src: "Chart_fill" },
-    { title: "Accounts", src: "User", gap:true },
+    { title: "Create User", src: "User" },
+    { title: "Update User", src: "User-update", gap:true },
     { title: "Diagnostics", src: "Facility" },
     { title: "Energy", src: "Analyst" },
     { title: "Messages", src: "Chat" },
