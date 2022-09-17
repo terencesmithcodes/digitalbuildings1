@@ -1,22 +1,24 @@
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { FaArrowLeft, FaRegUser } from "react-icons/fa";
-import { getEngBuilding, reset } from "../features/engineer/engineerSlice";
+// import { getEngBuilding, reset } from "../features/engineer/engineerSlice";
 import LeafMap from './LeafMap';
 // import BarChart from './BarChart';
-
+import { Link as LinkDom } from "react-router-dom";
+import {  logout } from "../../../features/auth/authSlice";
 
 const FacilityDash = () => {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
   const Dash = [
     { title: "Home", src: "Home" },
-    { title: "Dashboard", src: "Chart_fill" },
-    { title: "Accounts", src: "User", gap: true },
-    { title: "Diagnostics", src: "Facility" },
-    { title: "Energy", src: "Analyst" },
-    { title: "Messages", src: "Chat" },
-    { title: "Messages", src: "Chat", gap: true },
-    { title: "Messages", src: "Chat" },
+    // { title: "Dashboard", src: "Chart_fill" },
+    { title: "Log Out", src: "User", gap: true },
+    // { title: "Diagnostics", src: "Facility" },
+    // { title: "Energy", src: "Analyst" },
+    // { title: "Messages", src: "Chat" },
+    // { title: "Messages", src: "Chat", gap: true },
+    // { title: "Messages", src: "Chat" },
   ];
   return (
     <div className="flex">
@@ -42,7 +44,7 @@ const FacilityDash = () => {
               !open && "scale-0"
             }`}
           >
-            Admin
+            Facilty Engineer
           </h1>
         </div>
         <ul className="pt-6">
@@ -50,9 +52,14 @@ const FacilityDash = () => {
             <li
               key={index}
               className={`text-indigo-600 text-sm flex items-center 
-            gap-x-4 cursor-pointer p-2 hover:bg-indigo-100 rounded-md ${
-              dashhMenu.gap ? "mt-9" : "mt-2"
-            }`}
+            gap-x-4 cursor-pointer p-2 hover:bg-indigo-100 rounded-md ${dashhMenu.gap ? "mt-9" : "mt-2"
+                }`}
+              onClick={() => {
+                if (dashhMenu.title === "Log Out") {
+                  return dispatch(logout())
+                }
+              }
+              }
             >
               <span className={`${!open && "hidden"} origin-left duration-200`}>
                 {" "}
