@@ -14,7 +14,7 @@ const BarChart = ({ chartData }) => {
         options={ }
       />
 
-   
+
   )
 }
 
