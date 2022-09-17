@@ -80,11 +80,11 @@ const Navbar = () => {
           </Link>
         </li>
         <div className="flex flex-col my-4">
-          <Link to="/login"><button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
+          <Link to="/Login"><button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
             Sign In
           </button>
           </Link>
-          {/* <button className="px-8 py-3">Sign Up</button> */}
+          <button className="px-8 py-3">Log Out</button>
         </div>
       </ul>
     </div>

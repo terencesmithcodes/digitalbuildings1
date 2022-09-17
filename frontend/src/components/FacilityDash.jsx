@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaArrowLeft, FaRegUser } from "react-icons/fa";
 import LeafMap from './LeafMap';
+// import BarChart from './BarChart';
 
 const FacilityDash = () => {
 
@@ -84,13 +85,9 @@ const [open, setOpen] = useState(true);
             </div>
             <div className="flex flex-col justify-start md:items-start w-full px-2 py-8 border-2 border-indigo-200 rounded-xl">
               <h1 className="py-3 text-5xl md:text-5xl font-bold">
-                Building Details
+                Equipment by Class
               </h1>
-              <h2>Building Name</h2>
-              <h2>Address</h2>
-              <h2>Size</h2>
-              <h2>Type</h2>
-              <h2>Class</h2>
+                {/* <BarChart chartData={} /> */}
             </div>
             <div className="flex flex-col justify-start md:items-start w-full px-2 py-8 border-2 border-indigo-200 rounded-xl">
               <h1 className="py-3 text-5xl md:text-5xl font-bold">
