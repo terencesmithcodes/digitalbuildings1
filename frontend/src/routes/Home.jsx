@@ -1,9 +1,9 @@
 import React from "react";
-import Hero from "../components/Hero";
-import About from "../components/About";
-import Support from "../components/Support";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Hero from "../components/landingPage/Hero";
+import About from "../components/landingPage/About";
+import Support from "../components/landingPage/Support";
+import Navbar from "../components/landingPage/Navbar";
+import Footer from "../components/landingPage/Footer";
 
 const Home = () => {
   return (

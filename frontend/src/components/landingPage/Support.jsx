@@ -4,7 +4,7 @@ import { PhoneIcon, ArrowSmRightIcon } from "@heroicons/react/outline";
 
 import { ChipIcon, SupportIcon } from "@heroicons/react/solid";
 
-import supportHero from "../assets/support.jpg";
+import supportHero from "../../assets/support.jpg";
 
 const Support = () => {
   return (

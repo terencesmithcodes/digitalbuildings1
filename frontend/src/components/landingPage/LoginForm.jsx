@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { login, reset } from '../features/auth/authSlice'
+import { login, reset } from '../../features/auth/authSlice'
 
-import loginHero from '../assets/login.jpg'
+import loginHero from '../../assets/login.jpg'
 
 const LoginForm = () => {
   const navigate = useNavigate()

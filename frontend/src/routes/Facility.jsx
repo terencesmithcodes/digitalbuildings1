@@ -1,5 +1,5 @@
 import React from 'react'
-import FacilityDash from '../components/FacilityDash';
+import FacilityDash from '../components/dashboards/facilitydash/FacilityDash';
 
 
 

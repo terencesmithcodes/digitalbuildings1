@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-import AdminDash from '../components/AdminDash'
+import AdminDash from '../components/dashboards/admindash/AdminDashSidebar'
 
 
 
@@ -10,6 +10,7 @@ const AdminRoute = () => {
   return (
     <>
       <AdminDash /> 
+      
     </>
   );
 }

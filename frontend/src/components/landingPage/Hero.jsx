@@ -1,6 +1,6 @@
 import React from 'react'
 
-import hero from '../assets/data-analysis.png'
+import hero from '../../assets/data-analysis.png'
 
 const Hero = () => {
   return (
