@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getEngBuilding, reset } from "../features/engineer/engineerSlice";
 
+
 const EngineerTest = () => {
   const dispatch = useDispatch()
 
@@ -14,15 +15,15 @@ const EngineerTest = () => {
     if (isError) {
       console.log(message)
     }
-    // if (isLoading){
-    //   console.log('loading')
-    // }
-    dispatch(getEngBuilding(18175))
+    if(building === '' && !isLoading && !isError && !isSuccess){
+      dispatch(getEngBuilding(18175))
+    }
+    
 
     // return () => {
     //   dispatch(reset())
     // }
-  }, [])
+  }, [building, isError, isSuccess, isLoading, dispatch, message])
 
   if (isLoading) {
     return <h1>Is Loading...</h1>
@@ -34,14 +35,6 @@ const EngineerTest = () => {
       <div>Hello</div>
       <div>{building.Address}</div>
       </>   
-    )
-  }
-
-  if(!isSuccess){
-    return (
-      <>
-      <div>test</div>
-      </>
     )
   }
  
