@@ -7,7 +7,7 @@ import { getEngBuilding, reset } from "../features/engineer/engineerSlice";
 const EngineerTest = () => {
   const dispatch = useDispatch()
 
-  const {building, isError, isSuccess, isLoading, message} =useSelector(
+  const {building, equipClasses, isError, isSuccess, isLoading, message} =useSelector(
     (state) => state.engineer
   )
 
@@ -34,6 +34,12 @@ const EngineerTest = () => {
       <>
       <div>Hello</div>
       <div>{building.Address}</div>
+      <div>{equipClasses.map((equipmentClass) => (
+        <div key={equipmentClass.EquipmentClassID}>
+          <h4>Class name: {equipmentClass.EquipmentClassName}</h4>
+          <h5>Class Description: {equipmentClass.EquipmentClassDescription}</h5>
+        </div>
+      ))}</div>
       </>   
     )
   }
