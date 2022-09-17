@@ -4,6 +4,7 @@ import engineerService from './engineerService'
 
 const initialState = {
   building: '',
+  equipClasses: '',
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -15,7 +16,8 @@ export const getEngBuilding = createAsyncThunk(
   async (id, thunkAPI) =>{
     try {
       // const token = thunkAPI.getState().auth.user.token
-      return await engineerService.getEngBuilding(id)
+      return await engineerService.getEngBuilding(
+        id, 1)
     }catch(error){
       const message =
         (error.response &&
@@ -42,7 +44,9 @@ export const engineerSlice = createSlice({
     .addCase(getEngBuilding.fulfilled, (state, action) =>{
       state.isLoading = false
       state.isSuccess = true
-      state.building = action.payload
+      state.building = action.payload.building
+      state.equipClasses = action.payload.equipClasses
+
     })
     .addCase(getEngBuilding.rejected, (state, action) => {
       state.isLoading = false

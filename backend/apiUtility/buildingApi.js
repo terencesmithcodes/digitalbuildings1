@@ -33,15 +33,15 @@ const getBuildingPoints = asyncHandler(async(req, res)=>{
 
 
 
-const getBuildingEquipment = asyncHandler(async(req, res)=>{
-  const response = await axios.get(URL + req.params.id + '/equipment',{
+const getBuildingEquipment = asyncHandler(async(buildingNum)=>{
+  const response = await axios.get(URL + buildingNum + '/equipment',{
     headers: valHeader
   })
   return response.data
 })
 
-const getBuildingEquipmentClasses = asyncHandler(async(req, res)=>{
-  const response = await axios.get(URL + req.params.id + '/equipmentclasses',{
+const getBuildingEquipmentClasses = asyncHandler(async(buildingNum)=>{
+  const response = await axios.get(URL + buildingNum + '/equipmentclasses',{
     headers: valHeader
   })
   return response.data
