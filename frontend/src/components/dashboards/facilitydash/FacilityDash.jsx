@@ -42,24 +42,28 @@ const FacilityDash = () => {
     return (
       <div className="flex">
         <div
-          className={`${open ? "w-72" : "w-20"
-            } duration-300 h-screen p-5 pt-8 bg-zinc-200 relative`}
+          className={`${
+            open ? "w-72" : "w-20"
+          } duration-300 h-screen p-5 pt-8 bg-zinc-200 relative`}
         >
           <FaArrowLeft
-            className={`absolute cursor-pointer rounded-full -right-3 top-9 w-8 h-8 p-1 border-2 border-indigo-600 text-indigo-600 ${!open && "rotate-180"
-              }`}
+            className={`absolute cursor-pointer rounded-full -right-3 top-9 w-8 h-8 p-1 border-2 border-indigo-600 text-indigo-600 ${
+              !open && "rotate-180"
+            }`}
             onClick={() => setOpen(!open)}
           />
           <div className="flex gap-x-4 items-center">
             <FaRegUser
-              className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"
-                }`}
+              className={`cursor-pointer duration-500 ${
+                open && "rotate-[360deg]"
+              }`}
             />
             <h1
-              className={`text-indigo-600 origin-left font-medium text-xl duration-300 ${!open && "scale-0"
-                }`}
+              className={`text-indigo-600 origin-left font-medium text-xl duration-300 ${
+                !open && "scale-0"
+              }`}
             >
-              Facilty Engineer
+              Building Engineer
             </h1>
           </div>
           <ul className="pt-6">
@@ -67,15 +71,18 @@ const FacilityDash = () => {
               <li
                 key={index}
                 className={`text-indigo-600 text-sm flex items-center 
-            gap-x-4 cursor-pointer p-2 hover:bg-indigo-100 rounded-md ${dashhMenu.gap ? "mt-9" : "mt-2"
-                  }`}
+            gap-x-4 cursor-pointer p-2 hover:bg-indigo-100 rounded-md ${
+              dashhMenu.gap ? "mt-9" : "mt-2"
+            }`}
                 onClick={() => {
                   if (dashhMenu.title === "Log Out") {
                     return dispatch(logout());
                   }
                 }}
               >
-                <span className={`${!open && "hidden"} origin-left duration-200`}>
+                <span
+                  className={`${!open && "hidden"} origin-left duration-200`}
+                >
                   {" "}
                   {dashhMenu.title}
                 </span>
@@ -88,23 +95,24 @@ const FacilityDash = () => {
           <div className="bg-slate-300 col-span-2 w-full h-[400px]">
             <LeafMap />
           </div>
-          <div className="grid grid-cols-1 bg-slate-300 h-[400px] w-[400px] ">
-            <h1> Building Information</h1>
-            <span>Building Name</span>
-            <span>Address</span>
-            <span>City</span>
-            <span>State</span>
-            <span>Zipcode</span>
-            <span>Type</span>
-            <span>Area</span>
+          <div className="grid grid-cols-1 bg-white text-lg text-indigo-600 h-[400px] w-[400px border p-8 rounded-xl shadow-xl] content-evenly ">
+            <h1 className="font-bold text-xl"> Building Information</h1>
+            <span>Building Name: {building.BuildingName}</span>
+            <span>Address: {building.Address}</span>
+            <span>City: {building.City}</span>
+            <span>State: {building.StateName}</span>
+            <span>Zipcode: {building.Zip}</span>
+            <span>Type: {building.BuildingTypeName}</span>
+            <span>Area: {building.Area}</span>
+            <span>Floors: {building.Floors}</span>
           </div>
-          <div className="h-[300px] w-[400px]">
+          <div className="h-[400px] w-[400px] border p-2 rounded-xl shadow-xl">
             <DoughnutChart />
           </div>
-          <div className="h-[300px] w-[400px] ">
+          <div className="h-[400px] w-[400px border p-2 rounded-xl shadow-xl] ">
             <DoughnutChart />
           </div>
-          <div className="h-[300px] w-[400px]">
+          <div className="h-[400px] w-[400px border p-2 rounded-xl shadow-xl]">
             <DoughnutChart />
           </div>
         </div>
