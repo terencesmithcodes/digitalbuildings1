@@ -35,9 +35,10 @@ const EngineerTest = () => {
       <div>Hello</div>
       <div>{building.Address}</div>
       <div>{equipClasses.map((equipmentClass) => (
-        <div key={equipmentClass.EquipmentClassID}>
-          <h4>Class name: {equipmentClass.EquipmentClassName}</h4>
-          <h5>Class Description: {equipmentClass.EquipmentClassDescription}</h5>
+        <div key={equipmentClass.id}>
+          <h4>Class Id: {equipmentClass.id}</h4>
+          <h4>Class name: {equipmentClass.name}</h4>
+          <h5>Class Num: {equipmentClass.count}</h5>
         </div>
       ))}</div>
       </>   
