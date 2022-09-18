@@ -9,12 +9,17 @@ valHeader = {
   'Ocp-Apim-Subscription-Key': process.env.OCP_KEY
 }
 
+const cache = {};
 
 const getBuilding = asyncHandler(async(buildingNum)=>{
-  const response = await axios.get(URL + buildingNum,{
-    headers: valHeader
-  })
-  return response.data
+  if (!cache[buildingNum]) {
+    const response = await axios.get(URL + buildingNum,{
+      headers: valHeader
+    })
+    cache[buildingNum] = response.data
+  }
+
+  return cache[buildingNum]
 })
 
 const getBuildingPoints = asyncHandler(async(req, res)=>{
