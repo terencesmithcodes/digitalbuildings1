@@ -11,36 +11,6 @@ const initialState = {
   message: '',
 }
 
-const jdh = (equipClasses, allEquip) {
-
-  let equipId = 0
-  let equipClassIndex = 4
-
-  // map... 
-
-  const result = [];
-  allEquip.forEach(equip => {
-    const element = {
-      id:,
-      name:,
-    };
-
-    equipId = equip.EquipmentType.EquipmentClassID
-    equipClassIndex = arrEquipClasses.findIndex((equipClass) => equipClass.id === equipId)
-    arrEquipClasses[equipClassIndex]['count']++
- });
-
- return result;
-}
-
-const map = (someArr, cb) => {
-  const result = [];
-  someArr.forEach((el, index) => {
-    result[index] = cb(el);
-  }); 
-  return result;
-}
-
 const testFunc = (arrEquipClasses, allEquip) =>{
   let equipId = 0
   let equipClassIndex = 4
