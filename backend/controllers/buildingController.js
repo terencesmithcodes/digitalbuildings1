@@ -5,6 +5,21 @@ const asyncHandler = require('express-async-handler')
 const { validate } = require('../models/userModel')
 const {getBuilding, getBuildingEquipment, getBuildingEquipmentTypes, getBuildingEquipmentClasses} = require('../apiUtility/buildingApi')
 
+const NUMEQUIPSHOWN = 10
+
+const sortEquipment = (equipArr) =>{
+    let eSort = equipArr.sort((a,b) => {
+      if (a.count < b.count) {
+        return 1
+      }
+      if (a.count > b.count){
+        return -1
+      }
+      return 0
+    })
+
+    return eSort.slice(0,NUMEQUIPSHOWN)
+}
 
 const formatEquipment = (equipClasses, equipTypes, allEquip) => {
   let equipmentClasses = []
@@ -28,7 +43,11 @@ const formatEquipment = (equipClasses, equipTypes, allEquip) => {
     equipmentTypes[equipTypeIndex].count++
   })
 
-  return [equipmentClasses, equipmentTypes]
+  const tenLargestClasses = sortEquipment(equipmentClasses)
+  const tenLargestTypes = sortEquipment(equipmentTypes)
+
+
+  return [tenLargestClasses, tenLargestTypes]
 
 }
 

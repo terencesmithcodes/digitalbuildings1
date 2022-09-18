@@ -45,9 +45,9 @@ const EngineerTest = () => {
       <h6>Types</h6>
        <div>{equipTypes.map((equipmentTypes) => (
         <div key={equipmentTypes.id}>
-          <h4>Class Id: {equipmentTypes.id}</h4>
-          <h4>Class name: {equipmentTypes.name}</h4>
-          <h5>Class Num: {equipmentTypes.count}</h5>
+          <h4>Type Id: {equipmentTypes.id}</h4>
+          <h4>Type Name: {equipmentTypes.name}</h4>
+          <h5>Type Num: {equipmentTypes.count}</h5>
         </div>
       ))}</div>
       </>   
