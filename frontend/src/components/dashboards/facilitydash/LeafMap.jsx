@@ -19,7 +19,7 @@ const LeafMap = () => {
       className="map"
       center={position}
       zoom={12}
-      style={{ height: 600, width: "100%" }}
+      style={{ height: 400, width: "100%" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
