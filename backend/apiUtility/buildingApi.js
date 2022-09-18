@@ -22,8 +22,8 @@ const getBuilding = asyncHandler(async(buildingNum)=>{
   return cache[buildingNum]
 })
 
-const getBuildingPoints = asyncHandler(async(req, res)=>{
-  const response = await axios.get(URL + req.params.id + '/points',{
+const getBuildingPoints = asyncHandler(async(buildingNum)=>{
+  const response = await axios.get(URL + buildingNum + '/points',{
     headers: valHeader
   })
   return response.data
@@ -74,12 +74,13 @@ const getBuildingEquipmentType = asyncHandler(async(req, res)=>{
   return response.data
 })
 
-const getBuildingEquipmentPoints = asyncHandler(async(req, res)=>{
-  const response = await axios.get(URL + req.params.id + '/equipmentpoints',{
+const getBuildingEquipmentPoints = asyncHandler(async(buildingNum)=>{
+  const response = await axios.get(URL + buildingNum + '/equipmentpoints',{
     headers: valHeader
   })
   return response.data
 })
+
 
 module.exports = {
   getBuilding,
