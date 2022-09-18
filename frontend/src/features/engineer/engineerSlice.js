@@ -5,38 +5,11 @@ import engineerService from './engineerService'
 const initialState = {
   building: '',
   equipClasses: [],
+  equipTypes: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
   message: '',
-}
-
-const testFunc = (arrEquipClasses, allEquip) =>{
-  let equipId = 0
-  let equipClassIndex = 4
-  allEquip.forEach(equip => {
-     equipId = equip.EquipmentType.EquipmentClassID
-     equipClassIndex = arrEquipClasses.findIndex((equipClass) => equipClass.id === equipId)
-     arrEquipClasses[equipClassIndex]['count']++
-  })
-
-
-  console.log(allEquip[10].EquipmentType.EquipmentClassID)
-
-  return(arrEquipClasses)
-}
-
-const formatEquipClasses = (equipClasses, allEquip, cb) =>{
-  const arrEquipClasses = equipClasses.map((equipClass) => {
-    return {
-      id: equipClass.EquipmentClassID,
-      name: equipClass.EquipmentClassName,
-      count: 0
-      }
-  })
-
-  
-  return cb(arrEquipClasses, allEquip)
 }
 
 
@@ -74,26 +47,8 @@ export const engineerSlice = createSlice({
       state.isLoading = false
       state.isSuccess = true
       state.building = action.payload.building
-      state.equipClasses = formatEquipClasses(
-        action.payload.equipClasses,
-        action.payload.allEquip,
-        testFunc)
-
-      // const allEquip = action.payload.allEquip
-
-      // allEquip.map((equip) =>(
-      //    equip.EquipmentType.EquipmentClassID
-      // ))
-
-      // allEquip.map((equip) =>(
-      //   const classId = equip.EquipmentType.EquipmentClassID
-
-      //   const classIndex = state.equipClasses.findIndex(
-      //     (equipClass) => equipClass.id === classId
-      //   )
-      //   state.equipClasses[classIndex]['id'] += 1
-      // ))
-
+      state.equipClasses = action.payload.equipClasses
+      state.equipTypes = action.payload.equipTypes
     })
     .addCase(getEngBuilding.rejected, (state, action) => {
       state.isLoading = false

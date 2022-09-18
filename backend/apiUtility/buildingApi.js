@@ -60,8 +60,8 @@ const getBuildingEquipmentClass = asyncHandler(async(req, res)=>{
   return response.data
 })
 
-const getBuildingEquipmentTypes = asyncHandler(async(req, res)=>{
-  const response = await axios.get(URL + req.params.id + '/equipmenttypes',{
+const getBuildingEquipmentTypes = asyncHandler(async(buildingNum)=>{
+  const response = await axios.get(URL + buildingNum + '/equipmenttypes',{
     headers: valHeader
   })
   return response.data
