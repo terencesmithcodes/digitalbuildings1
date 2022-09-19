@@ -7,7 +7,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 
-const DoughnutChart = () => {
+const EquipClassChart = () => {
   const data = {
     // labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
     labels:[],
@@ -50,4 +50,4 @@ const DoughnutChart = () => {
     };
     
     
-export default DoughnutChart
+export default EquipClassChart
