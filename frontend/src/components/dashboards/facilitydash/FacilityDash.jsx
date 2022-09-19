@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { FaArrowLeft, FaRegUser } from "react-icons/fa";
 // import { getEngBuilding, reset } from "../features/engineer/engineerSlice";
 import LeafMap from './LeafMap';
-import DoughnutChart from '../../charts/DoughnutChart';
+import EquipClassChart from '../../charts/EquipClassChart';
 // import { Link as LinkDom } from "react-router-dom";
 import {  logout } from "../../../features/auth/authSlice";
 
@@ -95,7 +95,7 @@ const FacilityDash = () => {
           <div className="bg-slate-300 col-span-2 w-full h-[400px]">
             <LeafMap />
           </div>
-          <div className="grid grid-cols-1 bg-white text-lg text-indigo-600 h-[400px] w-[400px border p-8 rounded-xl shadow-xl] content-evenly ">
+          <div className="grid md:grid-cols-3 bg-white text-lg text-indigo-600 h-[400px] w-[400px border p-8 rounded-xl shadow-xl] content-evenly ">
             <h1 className="font-bold text-xl"> Building Information</h1>
             <span>Building Name: {building.BuildingName}</span>
             <span>Address: {building.Address}</span>
@@ -106,14 +106,14 @@ const FacilityDash = () => {
             <span>Area: {building.Area}</span>
             <span>Floors: {building.Floors}</span>
           </div>
-          <div className="h-[400px] w-[400px] border p-2 rounded-xl shadow-xl">
-            <DoughnutChart />
+          <div className="h-[400px] w-[400px] border p-2 rounded-xl shadow-xl md:grid-cols-3">
+            <EquipClassChart />
           </div>
           <div className="h-[400px] w-[400px border p-2 rounded-xl shadow-xl] ">
-            <DoughnutChart />
+            <EquipClassChart />
           </div>
           <div className="h-[400px] w-[400px border p-2 rounded-xl shadow-xl]">
-            <DoughnutChart />
+            <EquipClassChart />
           </div>
         </div>
       </div>
