@@ -6,6 +6,7 @@ const initialState = {
   building: '',
   equipClasses: [],
   equipTypes: [],
+  analyses: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -49,11 +50,13 @@ export const engineerSlice = createSlice({
       state.building = action.payload.building
       state.equipClasses = action.payload.equipClasses
       state.equipTypes = action.payload.equipTypes
+      state.analyses = action.payload.topAnalyses
     })
     .addCase(getEngBuilding.rejected, (state, action) => {
       state.isLoading = false
       state.isError = true
       state.message = action.payload
+      
     })
   }
 
