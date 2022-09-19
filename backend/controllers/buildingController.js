@@ -10,9 +10,31 @@ const {
   getBuildingEquipmentTypes, 
   getBuildingEquipmentClasses,
   getBuildingEquipmentPoints,
+  getAnalyses
 } = require('../apiUtility/buildingApi')
 
 const NUM_OF_EQUIP_SHOWN = 10
+const NUM_OF_ANAYSES_SHOWN = 3
+
+const grabAnalyses = (analyses) => {
+  let allAnalyses = []
+  let analysesToShow = []
+  // let allAnalysesArr = analyses.map((analysis) =>{
+  //    return analysis.AnalysisTeaser
+  // })
+  analyses.forEach(analysis =>{
+    allAnalyses.push(analysis.AnalysisTeaser)
+  })
+  while(analysesToShow.length < NUM_OF_ANAYSES_SHOWN){
+    console.log(analysesToShow)
+    let randomAnalysis = allAnalyses[Math.floor(Math.random()*allAnalyses.length)]
+    analysesToShow.push(randomAnalysis)
+  }
+
+  return analysesToShow
+  
+
+}
 
 const sortEquipment = (equipArr) =>{
     let eSort = equipArr.sort((a,b) => {
@@ -54,6 +76,7 @@ const formatEquipment = (equipClasses, equipTypes, allEquip) => {
   const largestTypes = sortEquipment(equipmentTypes)
 
 
+
   return [largestClasses, largestTypes]
 
 }
@@ -65,19 +88,25 @@ const getEngineerBuilding = asyncHandler(async(req, res) => {
   let equipmentClasses = await getBuildingEquipmentClasses(subId)
   let equipmentTypes = await getBuildingEquipmentTypes(subId)
   let allBuildingEquip = await getBuildingEquipment(subId)
+  let allAnalyses = await getAnalyses()
 
   const equipData = formatEquipment(equipmentClasses[0]["EquipmentClasses"], 
         equipmentTypes[0].EquipmentTypes, allBuildingEquip[0]['Equipment'])
-  
+
+  const shownAnalyses = grabAnalyses(allAnalyses)
+
   const equipClasses = equipData[0]
   const equipTypes = equipData[1]
+  
+  
                       
   
 
   res.status(200).json({
     building: buildingData[0],
     equipClasses: equipClasses,
-    equipTypes: equipTypes
+    equipTypes: equipTypes,
+    topAnalyses: shownAnalyses
     
   })
 })

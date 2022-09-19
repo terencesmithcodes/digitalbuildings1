@@ -3,6 +3,7 @@ const asyncHandler = require('express-async-handler')
 
 
 const URL = 'https://rest.buildingsapi.net/core-base/Buildings/'
+const URLA = 'https://rest.buildingsapi.net/core-base/analyses/'
 
 valHeader = {
   'Content-Type' : 'application/json',
@@ -28,6 +29,14 @@ const getBuildingPoints = asyncHandler(async(buildingNum)=>{
   })
   return response.data
 })
+
+const getAnalyses = asyncHandler(async()=>{
+  const respone = await axios.get(URLA,{
+    headers: valHeader
+  })
+  return respone.data
+})
+
 
 // const getBuildingTypes = asyncHandler(async(req, res)=>{
 //   const response = await axios.get(URLTYPES,{
@@ -91,5 +100,6 @@ module.exports = {
   getBuildingEquipmentClass,
   getBuildingEquipmentTypes,
   getBuildingEquipmentType,
-  getBuildingEquipmentPoints
+  getBuildingEquipmentPoints,
+  getAnalyses
 }
