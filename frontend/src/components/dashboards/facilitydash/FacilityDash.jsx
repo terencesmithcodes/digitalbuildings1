@@ -4,6 +4,7 @@ import { FaArrowLeft, FaRegUser } from "react-icons/fa";
 // import { getEngBuilding, reset } from "../features/engineer/engineerSlice";
 import LeafMap from './LeafMap';
 import EquipClassChart from '../../charts/EquipClassChart';
+import EquipTypeChart from '../../charts/EquipTypeChart'
 // import { Link as LinkDom } from "react-router-dom";
 import {  logout } from "../../../features/auth/authSlice";
 
@@ -106,13 +107,13 @@ const FacilityDash = () => {
             <span>Area: {building.Area}</span>
             <span>Floors: {building.Floors}</span>
           </div>
-          <div className="h-[400px] w-[400px] border p-2 rounded-xl shadow-xl md:grid-cols-3">
+          <div className="h-[400px] w-[400px] border p-2 rounded-xl shadow-xl ">
             <EquipClassChart />
           </div>
-          <div className="h-[400px] w-[400px border p-2 rounded-xl shadow-xl] ">
-            <EquipClassChart />
+          <div className="h-[400px] w-[400px] border p-2 rounded-xl shadow-xl] ">
+            <EquipTypeChart />
           </div>
-          <div className="h-[400px] w-[400px border p-2 rounded-xl shadow-xl]">
+          <div className="h-[400px] w-[400px] border p-2 rounded-xl shadow-xl]">
             <EquipClassChart />
           </div>
         </div>
