@@ -5,7 +5,7 @@ import {
   getEngBuilding,
   reset,
 } from "../../../features/engineer/engineerSlice";
-import LeafMap from "./LeafMap";
+import LeafMap from "../facilitydash/LeafMap";
 import EquipClassChart from "../../charts/EquipClassChart";
 import EquipTypeChart from "../../charts/EquipTypeChart";
 

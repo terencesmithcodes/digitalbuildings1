@@ -100,25 +100,6 @@ const LeftCol = () => {
                   );
                 })}
               </div>
-
-              {/* <table className="w-full">
-                {analyses.map((analysis, aIndex) => {
-                  return (
-                <thead  
-                 className="bg-gray-200 border-b-2 border-gray-400"
-                 key={aIndex}
-                 >
-                {analysis.name}
-                      {
-                        analysis.teaser.map((teaser, tIndex) => {
-                          return (<tr key={tIndex + 100}>{teaser}</tr>)
-                        })
-                      }
-                    )})}  
-                      
-                </thead>
-               
-              </table> */}
             </div>
           </div>
         </div>
