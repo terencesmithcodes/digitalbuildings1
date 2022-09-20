@@ -47,7 +47,7 @@ const LeftCol = () => {
       <div className="col-span-3 min-h-[90vh] border-r border-feay-200 items-start justify-start flex flex-col w-full">
         <div className="w-full items-start justify-start flex flex-col px-12 pt-6 pb-6">
           <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl -ml-16 pb-4">
-            Building Information
+            Building Profile
           </h1>
           <div className="justify-between flex px-6 pt-8 pb-4 border-2 border-feay-200 rounded-xl shadow-xl -ml-16 mt-2 w-full">
             <div className="flex flex-col w-full border-r border-feay-200">
