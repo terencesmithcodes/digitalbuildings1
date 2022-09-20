@@ -38,20 +38,20 @@ const RightCol = () => {
           <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl pb-4">
             Equipment by Class
           </h1>
-          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-indigo-100 rounded-xl mt-2 w-full">
+          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2 w-[600px] ">
             <EquipClassChart />
           </div>
-          <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl pb-4">
+          <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl mt-4 pb-2">
             Equipment by Type
           </h1>
-          <div className="items-center mx-auto justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-indigo-100 rounded-xl mt-2 w-full">
+          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2b w-[600px] ">
             <EquipTypeChart />
           </div>
 
-          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-b-indigo-600 mt-6 w-full">
+          {/* <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-b-indigo-600 mt-6 w-full">
             <h1></h1>
             <h1></h1>
-          </div>
+          </div> */}
         </div>
       </div>
     );
