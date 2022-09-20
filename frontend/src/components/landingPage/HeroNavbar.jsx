@@ -10,7 +10,7 @@ import {
 import { Link as LinkDom } from 'react-router-dom'
 
 
-const Navbar = () => {
+const HeroNavbar = () => {
   const [nav, setNav] = useState(false);
   const handleClick = () => setNav(!nav);
 
@@ -95,4 +95,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default HeroNavbar;

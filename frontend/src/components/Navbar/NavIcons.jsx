@@ -1,10 +1,9 @@
 import {
-  ChatAltIcon,
+  OfficeBuildingIcon,
   CogIcon,
   LogoutIcon,
-  ShoppingCartIcon,
   TemplateIcon,
-  UserIcon,
+  
 } from "@heroicons/react/outline";
 
 export const navLinks = [
@@ -14,22 +13,17 @@ export const navLinks = [
     icon: <TemplateIcon className="nav-icon" />,
   },
   {
+    id: 1,
+    title: "Select Building",
+    icon: <OfficeBuildingIcon className="nav-icon" />,
+  },
+  {
     id: 2,
-    title: "Portfolio",
-    icon: <UserIcon className="nav-icon" />,
-  },
-  {
-    id: 3,
-    title: "Documentation",
-    icon: <ChatAltIcon className="nav-icon" />,
-  },
-  {
-    id: 4,
     title: "Settings",
     icon: <CogIcon className="nav-icon" />,
   },
   {
-    id: 5,
+    id: 3,
     title: "LogOut",
     icon: <LogoutIcon className="nav-icon" />,
   },

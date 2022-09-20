@@ -78,7 +78,7 @@ const AdminDash = () => {
 
   return (
     <div className="flex">
-      <div
+      {/* <div
         className={`${
           open ? "w-72" : "w-20"
         } duration-300 h-screen p-5 pt-8 bg-zinc-200 relative`}
@@ -125,7 +125,8 @@ const AdminDash = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
+      
       <CreateUser />
       <UpdateUserForm />
     </div>

@@ -1,4 +1,4 @@
-import Navbar from "./components/landingPage/Navbar";
+// import Navbar from "./components/landingPage/Navbar";
 import Footer from "./components/landingPage/Footer";
 import Home from "./routes/Home";
 import Login from "./routes/Login";
