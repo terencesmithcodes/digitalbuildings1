@@ -11,7 +11,7 @@ import EquipTypeChart from "../../charts/EquipTypeChart";
 
 const LeftCol = () => {
   const dispatch = useDispatch();
-  const { building, equipClasses, isError, isSuccess, isLoading, message } =
+  const { building, equipClasses, analyses, isError, isSuccess, isLoading, message } =
     useSelector((state) => state.engineer);
 
   useEffect(() => {
@@ -51,18 +51,58 @@ const LeftCol = () => {
             </span>
             <span className="border-b-2 p-2">Area: {building.Area}</span>
             <span className="p-2">Floors: {building.Floors}</span>
+          <div className="items-start justify-start flex flex-col px-6 pt-8 pb-4 border-2 border-indigo-100 rounded-xl mt-2 w-full">
+            <span className="border-b-2 p-2">
+              Building Name: {building.BuildingName}
+            </span>
+            <span className="border-b-2 p-2">Address: {building.Address}</span>
+            <span className="border-b-2 p-2">City: {building.City}</span>
+            <span className="border-b-2 p-2">State: {building.StateName}</span>
+            <span className="border-b-2 p-2">Zipcode: {building.Zip}</span>
+            <span className="border-b-2 p-2">
+              Type: {building.BuildingTypeName}
+            </span>
+            <span className="border-b-2 p-2">Area: {building.Area}</span>
+            <span className="p-2">Floors: {building.Floors}</span>
+          </div>
           </div>
           <div className="items-start justify-start flex flex-col px-6 pt-8 pb-4 border-b-indigo-600 mt-6 w-full">
             <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl pb-4">
               Top Reported Issues
             </h1>
             <div className="items-start justify-start flex flex-col px-6 pt-8 pb-4 border-2 border-indigo-100 rounded-xl mt-2 w-full">
-              <table className="w-full">
-                <thead className="bg-gray-200 border-b-2 border-gray-400">
-                  <tr></tr>
+              <div className="w-full p-4 m-4">
+                {analyses.map((analysis, aIndex) => {
+                  return (
+                    <div key={aIndex}>
+                      <h5>{analysis.name}</h5>
+                      <h6>Issues</h6>
+                      {analysis.teaser.map((teaser, tIndex) => {
+                        return <p key={tIndex + 100}>{teaser}</p>;
+                      })}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* <table className="w-full">
+                {analyses.map((analysis, aIndex) => {
+                  return (
+                <thead  
+                 className="bg-gray-200 border-b-2 border-gray-400"
+                 key={aIndex}
+                 >
+                {analysis.name}
+                      {
+                        analysis.teaser.map((teaser, tIndex) => {
+                          return (<tr key={tIndex + 100}>{teaser}</tr>)
+                        })
+                      }
+                    )})}  
+                      
                 </thead>
-                <tr></tr>
-              </table>
+               
+              </table> */}
             </div>
           </div>
         </div>
