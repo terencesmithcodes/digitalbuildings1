@@ -30,7 +30,7 @@ const grabAnalyses = (analyses) => {
     let randomAnalysis = allAnalyses[Math.floor(Math.random()*allAnalyses.length)]
     try {
       let analysisArr = randomAnalysis.teaser.split('\n')
-      if(analysisArr.length < 2){
+      if(analysisArr.length > 2){
         analysesToShow.push({name: randomAnalysis.name, teaser: analysisArr.splice(1, NUM_OF_TEASERS_SHOWN)})
       }
     }catch(error){

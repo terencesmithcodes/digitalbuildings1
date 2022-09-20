@@ -56,7 +56,6 @@ const EngineerTest = () => {
         return (
           <div key={aIndex}>
           <h5>{analysis.name}</h5>
-          return an
           <h6>Issues</h6>
           {
             analysis.teaser.map((teaser, tIndex) =>{
