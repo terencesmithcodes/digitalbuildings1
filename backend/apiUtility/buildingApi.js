@@ -90,6 +90,13 @@ const getBuildingEquipmentPoints = asyncHandler(async(buildingNum)=>{
   return response.data
 })
 
+const getBuildingTaskRecords = asyncHandler(async(buildingNum) =>{
+  const respone = await axios.get(URL + buildingNum + '/taskrecords', {
+    headers: valHeader
+  })
+  return respone.data
+})
+
 
 module.exports = {
   getBuilding,
@@ -101,5 +108,6 @@ module.exports = {
   getBuildingEquipmentTypes,
   getBuildingEquipmentType,
   getBuildingEquipmentPoints,
+  getBuildingTaskRecords,
   getAnalyses
 }
