@@ -30,11 +30,6 @@ const LeftCol = () => {
     }
   }, [building, isError, isSuccess, isLoading, dispatch, message]);
 
-  const [open, setOpen] = useState(true);
-  const Dash = [
-    { title: "Home", src: "Home" },
-    { title: "Log Out", src: "User" },
-  ];
   if (isLoading) {
     return (
       <h1 className="flex flex-row justify-center mr-10 mt-8 w-full">

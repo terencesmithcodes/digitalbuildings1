@@ -8,6 +8,8 @@ import {
 import LeafMap from "../facilitydash/LeafMap";
 import EquipClassChart from "../../charts/EquipClassChart";
 import EquipTypeChart from "../../charts/EquipTypeChart";
+import EnergyLineChart from "../../charts/EnergyLineChart";
+import CoolHeatChart from "../../charts/CoolHeatChart";
 
 const RightEnergyCol = () => {
   const dispatch = useDispatch();
@@ -49,9 +51,11 @@ const RightEnergyCol = () => {
             Equipment by Type
           </h1>
           <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2b w-[500px] ">
-            <EquipTypeChart />
+            <EnergyLineChart />
           </div>
-
+          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2b w-[500px] ">
+            <CoolHeatChart />
+          </div>
           {/* <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-b-indigo-600 mt-6 w-full">
             <h1></h1>
             <h1></h1>

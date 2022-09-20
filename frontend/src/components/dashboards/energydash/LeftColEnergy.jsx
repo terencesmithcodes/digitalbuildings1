@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import LeafMap from "../facilitydash/LeafMap";
-import EnergyBarChart from "../../charts/EnergyBarChart";
-import EquipTypeChart from "../../charts/EquipTypeChart";
+
+import Loading from "../loading/Loading";
 
 import { getEngeryAnalyses, reset } from "../../../features/energy/energySlice";
 
 const LeftColEnergy = () => {
   const dispatch = useDispatch();
-  const { building, trackRecords, equipClasses, isError, isSuccess, isLoading, message } =
-    useSelector((state) => state.engineer);
+  const {
+    building,
+    trackRecords,
+    equipClasses,
+    isError,
+    isSuccess,
+    isLoading,
+    message
+  } = useSelector((state) => state.energy);
 
   useEffect(() => {
     if (isError) {
@@ -21,14 +27,13 @@ const LeftColEnergy = () => {
     }
   }, [building, isError, isSuccess, isLoading, dispatch, message]);
 
-  const [open, setOpen] = useState(true);
-  const Dash = [
-    { title: "Home", src: "Home" },
-    { title: "Log Out", src: "User" },
-  ];
-  if (isLoading) {
-    return <h1>Is Loading...</h1>;
-  }
+ if (isLoading) {
+   return (
+     <h1 className="flex flex-row justify-center mr-10 mt-8 w-full">
+       <Loading />
+     </h1>
+   );
+ }
   if (isSuccess) {
     return (
       <div className="col-span-2 min-h-[90vh] border-r border-feay-200 items-start justify-start flex flex-col w-full">
@@ -77,11 +82,11 @@ const LeftColEnergy = () => {
                     <h6>If Issue is resolved</h6>
                     <h4>Annual Avoidable Cost: {record.AnnualAvoidableCost}</h4>
                     <h4>
-                      Annual Avoidable HeatingUse:{" "}
+                      Annual Avoidable HeatingUse:
                       {record.AnnualAvoidableHeatingUse}
                     </h4>
                     <h4>
-                      AnnualAvoidableCoolingUse:{" "}
+                      AnnualAvoidableCoolingUse:
                       {record.AnnualAvoidableCoolingUse}
                     </h4>
                     <br></br>

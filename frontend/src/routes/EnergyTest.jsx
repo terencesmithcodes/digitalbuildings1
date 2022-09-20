@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import Loading from "../components/dashboards/loading/Loading";
 
 import { getEngeryAnalyses, reset } from "../features/energy/energySlice";
 
@@ -25,7 +26,11 @@ const EnergyTest = () => {
   }, [building, isError, isSuccess, isLoading, dispatch, message])
 
   if (isLoading) {
-    return <h1>Is Loading...</h1>
+    return (
+      <h1 className="flex flex-row justify-center mr-10 mt-8 w-full">
+        <Loading />
+      </h1>
+    );
   }
 
   if (isSuccess){
