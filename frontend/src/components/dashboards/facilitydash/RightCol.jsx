@@ -34,17 +34,17 @@ const RightCol = () => {
   if (isSuccess) {
     return (
       <div className="col-span-2 min-h-[90vh] items-center justify-center flex flex-col w-full">
-        <div className="w-full items-center justify-center flex flex-col px-12 pt-12 pb-6">
+        <div className="w-full items-center justify-center flex flex-col px-12 pb-6">
           <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl pb-4">
             Equipment by Class
           </h1>
-          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2 w-[600px] ">
+          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2 w-[500px] ">
             <EquipClassChart />
           </div>
           <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl mt-4 pb-2">
             Equipment by Type
           </h1>
-          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2b w-[600px] ">
+          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2b w-[500px] ">
             <EquipTypeChart />
           </div>
 

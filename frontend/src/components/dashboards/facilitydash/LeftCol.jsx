@@ -45,7 +45,7 @@ const LeftCol = () => {
   if (isSuccess) {
     return (
       <div className="col-span-3 min-h-[90vh] border-r border-feay-200 items-start justify-start flex flex-col w-full">
-        <div className="w-full items-start justify-start flex flex-col px-12 pt-12 pb-6">
+        <div className="w-full items-start justify-start flex flex-col px-12 pt-6 pb-6">
           <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl -ml-16 pb-4">
             Building Information
           </h1>
