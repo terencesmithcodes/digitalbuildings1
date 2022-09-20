@@ -27,7 +27,7 @@ const getTopTrackRecords =(trackRecords) =>{
   return fullTrackRecords
 }
 
-const getEnergyAnaylst = asyncHandler(async(req, res) =>{
+const getEnergyAnaylses = asyncHandler(async(req, res) =>{
   let buildingId = req.params.id
   let subId = req.params.sub
   let buildingData = await getBuilding(buildingId)
@@ -36,13 +36,12 @@ const getEnergyAnaylst = asyncHandler(async(req, res) =>{
   let topTrackRecords = getTopTrackRecords(buildingTrackRecords[0].TaskRecords)
 
   res.status(200).json({
-    // building: buildingData[0]
+    building: buildingData[0],
     trackRecords: topTrackRecords
-    // buildingTrackRecords : buildingTrackRecords[0].TaskRecords
   })
 
 })
 
 module.exports = {
-  getEnergyAnaylst
+  getEnergyAnaylses
 }

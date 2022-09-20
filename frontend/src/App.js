@@ -8,6 +8,7 @@ import Facility from "./routes/Facility";
 import RegisterTest from "./routes/RegisterTest";
 import EngineerTest from "./routes/EngineerTest";
 import BuildingDash from "./routes/BuildingDash";
+import EnergyTest from "./routes/EnergyTest";
 
 
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/Register" element={<RegisterTest />} />
         <Route path="/Engineer" element={<EngineerTest />}/>
         <Route path="/Building" element={<BuildingDash />}/>
+        <Route path="/testen" element={<EnergyTest />}/>
        
        
       </Routes>
