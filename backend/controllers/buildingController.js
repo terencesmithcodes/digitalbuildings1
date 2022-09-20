@@ -15,6 +15,7 @@ const {
 
 const NUM_OF_EQUIP_SHOWN = 10
 const NUM_OF_ANAYSES_SHOWN = 3
+const NUM_OF_TEASERS_SHOWN = 5
 
 const grabAnalyses = (analyses) => {
   let allAnalyses = []
@@ -23,12 +24,18 @@ const grabAnalyses = (analyses) => {
   //    return analysis.AnalysisTeaser
   // })
   analyses.forEach(analysis =>{
-    allAnalyses.push(analysis.AnalysisTeaser)
+    allAnalyses.push({name: analysis.AnalysisName, teaser: analysis.AnalysisTeaser})
   })
   while(analysesToShow.length < NUM_OF_ANAYSES_SHOWN){
-    console.log(analysesToShow)
     let randomAnalysis = allAnalyses[Math.floor(Math.random()*allAnalyses.length)]
-    analysesToShow.push(randomAnalysis)
+    try {
+      let analysisArr = randomAnalysis.teaser.split('\n')
+      if(analysisArr.length < 2){
+        analysesToShow.push({name: randomAnalysis.name, teaser: analysisArr.splice(1, NUM_OF_TEASERS_SHOWN)})
+      }
+    }catch(error){
+      continue
+    }
   }
 
   return analysesToShow
@@ -107,7 +114,6 @@ const getEngineerBuilding = asyncHandler(async(req, res) => {
     equipClasses: equipClasses,
     equipTypes: equipTypes,
     topAnalyses: shownAnalyses
-    
   })
 })
 
