@@ -12,7 +12,7 @@ const BuildingRoute = () => {
       <Header />
       <div className="w-full min-h-[90vh] grid grid-cols-12">
         <Navbar />
-        <div className="grid grid-cols-1 xl:grid-cols-5 col-span-10 w-full">
+        <div className="grid grid-cols-1 place-self-center xl:grid-cols-5 col-span-10 w-full">
           <LeftCol />
           <RightCol />
         </div>
