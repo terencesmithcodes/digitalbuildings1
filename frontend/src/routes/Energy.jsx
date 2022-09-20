@@ -1,6 +1,6 @@
 import React from "react";
-import LeftColEnergy from "../components/dashboards/facilitydash/LeftColEnergy";
-import RightColEnergy from "../components/dashboards/facilitydash/RightColEnergy";
+import LeftColEnergy from "../components/dashboards/energydash/LeftColEnergy";
+import RightColEnergy from "../components/dashboards/energydash/RightColEnergy";
 import Header from "../components/Navbar/Header";
 import Navbar from "../components/Navbar/Navbar";
 
