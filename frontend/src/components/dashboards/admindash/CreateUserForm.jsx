@@ -55,6 +55,13 @@ const CreateUserForm = () => {
       };
 
       dispatch(register(userData));
+      setFormData({
+        username: "",
+        email: "",
+        role: "",
+        password: "",
+        password2: "",
+      })
     }
   };
 
