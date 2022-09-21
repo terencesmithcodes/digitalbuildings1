@@ -37,6 +37,7 @@ app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/building', require('./routes/engineerRoutes'))
 app.use('/api/energy', require('./routes/energyRoutes'))
 app.use('/api/createbuilding', require('./routes/buildingRoutes'))
+app.use('/api/selectbuilding', require('./routes/selectorRoutes'))
 
 //Serve frontend
 if (process.env.NODE_ENV === 'production') {

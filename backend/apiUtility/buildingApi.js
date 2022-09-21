@@ -25,6 +25,13 @@ const getBuilding = asyncHandler(async(buildingNum)=>{
   return cache[buildingNum]
 })
 
+const getAllBuildings = asyncHandler(async()=>{
+  const response = await axios.get(URL,{
+    headers: valHeader
+  })
+  return response.data
+})
+
 // const getBuilding = asyncHandler(async(buildingNum)=>{
 //   const building = await Building.findOne({buildingId: buildingNum})
 
@@ -110,7 +117,7 @@ const getBuildingTaskRecords = asyncHandler(async(buildingNum) =>{
 module.exports = {
   getBuilding,
   getBuildingPoints,
-  // getBuildingTypes,
+  getAllBuildings,
   getBuildingEquipment,
   getBuildingEquipmentClasses,
   getBuildingEquipmentClass,

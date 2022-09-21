@@ -25,9 +25,9 @@ const LeftCol = () => {
     if (isError) {
       console.log(message);
     }
-    if (building === "" && !isLoading && !isError && !isSuccess) {
-      dispatch(getEngBuilding(1));
-    }
+    // if (building === "" && !isLoading && !isError && !isSuccess) {
+    //   dispatch(getEngBuilding(1));
+    // }
   }, [building, isError, isSuccess, isLoading, dispatch, message]);
 
   if (isLoading) {

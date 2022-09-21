@@ -1,17 +1,37 @@
 import React, {useState} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 
+import { getEngBuilding} from "../../../features/engineer/engineerSlice";
+import { getEngeryAnalyses} from "../../../features/energy/energySlice"
 
 const Selector = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
     const options = [
-    { label: 'Building', value: '1' },
-    { label: 'Building', value: '2' },
-    { label: 'Building', value: '3' },
+    { label: 'MIT', value: '1' },
+    { label: 'University of Arizona', value: '7035' },
+    { label: 'SE Sweden Hosted', value: '7254' },
+    { label: 'Orange: Europe', value: '6973' },
   ]
+  const {user} = useSelector((state) => state.auth);
 
-  const [value, setValue] = useState();
+  // const [value, setValue] = useState();
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    try {if(user.role === 'energy'){
+      dispatch(getEngeryAnalyses(event.target.value))
+    navigate('/energy')
+    }else{
+      dispatch(getEngBuilding(event.target.value))
+      navigate('/building')
+    }}catch(error){
+      dispatch(getEngBuilding(event.target.value))
+      navigate('/building')
+    }
+    
+    
+    // setValue(event.target.value);
   };
 return (
   <div >
@@ -19,11 +39,11 @@ return (
       
       <select
         className="flex w-[200px] rounded-xl mt-1 mb-4 relative p-6 text-lg text-indigo-600 bg-gray-100"
-        value={value}
+        // value={value}
         onChange={handleChange}
       >
         {options.map((option) => (
-          <option value={option.value}>{option.label}</option>
+          <option key={option.value} value={option.value}>{option.label}</option>
         ))}
       </select>
     </label>
