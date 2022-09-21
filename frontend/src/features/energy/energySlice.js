@@ -16,7 +16,7 @@ export const getEngeryAnalyses = createAsyncThunk(
   async(id, thunkAPI) => {
     try {
       // const token = thunkAPI.getState().auth.user.token
-      return await energyService.getEnergyAnalyses(id, 1)
+      return await energyService.getEnergyAnalyses(id)
     }catch(error){
       const message =
         (error.response &&
