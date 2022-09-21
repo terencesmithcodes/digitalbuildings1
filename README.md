@@ -1,7 +1,7 @@
 
 # Digital Building Analytics
 
-Provides Building Engineers and Energy Engineers to ability to view all energy consuming assets in one location.
+Provides Building Engineers and Energy Engineers the ability to view all energy consuming assets in one location.
 
 
 ## Screenshots
