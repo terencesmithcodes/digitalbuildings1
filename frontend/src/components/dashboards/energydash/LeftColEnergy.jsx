@@ -22,9 +22,9 @@ const LeftColEnergy = () => {
     if (isError) {
       console.log(message);
     }
-    if (building === "" && !isLoading && !isError && !isSuccess) {
-      dispatch(getEngeryAnalyses(1));
-    }
+    // if (building === "" && !isLoading && !isError && !isSuccess) {
+    //   dispatch(getEngeryAnalyses(1));
+    // }
   }, [building, isError, isSuccess, isLoading, dispatch, message]);
 
  if (isLoading) {

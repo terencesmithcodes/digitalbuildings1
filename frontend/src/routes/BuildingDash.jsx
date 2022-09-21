@@ -29,9 +29,9 @@ const BuildingRoute = () => {
       //   dispatch(getEngBuilding(1));
       // }
 
-      return () => {
-        dispatch(reset())
-      }
+      // return () => {
+      //   dispatch(reset())
+      // }
     }, [building, isError, isSuccess, isLoading, dispatch, message]);
   
   if(building === "" && !isLoading && !isError && !isSuccess){
