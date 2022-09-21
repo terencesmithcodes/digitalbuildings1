@@ -17,12 +17,16 @@ Provides Building Engineers and Energy Engineers the ability to view all energy 
 
 ## Features
 
+- MongoDB
+- Express
 - React
+- Node
 - Redux/Toolkit
 - Tailwind CSS
 - React Router DOM
 - React Leaflet
 - Charts.js
+- JWT Web Tokens
 - Axios
 - React Scroll
 - React Toastify
