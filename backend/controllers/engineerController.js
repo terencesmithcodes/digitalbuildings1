@@ -110,9 +110,9 @@ const getEngineerBuilding = asyncHandler(async(req, res) => {
 
   res.status(200).json({
     building: buildingData[0],
-    // equipClasses: equipClasses,
-    // equipTypes: equipTypes,
-    // topAnalyses: shownAnalyses
+    equipClasses: equipClasses,
+    equipTypes: equipTypes,
+    topAnalyses: shownAnalyses
   })
 })
 

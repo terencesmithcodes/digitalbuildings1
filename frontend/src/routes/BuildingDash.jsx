@@ -12,7 +12,7 @@ import BuildingSelector from '../components/dashboards/buildingSelector.jsx/Buil
 const BuildingRoute = () => {
   //  const navigate = useNavigate();
    const dispatch = useDispatch();
-  const [showBuilding, setshowBuilding] = useState(true);
+  // const [showBuilding, setshowBuilding] = useState(true);
     const {
       building,
       isError,
@@ -29,12 +29,12 @@ const BuildingRoute = () => {
       //   dispatch(getEngBuilding(1));
       // }
 
-      // return () => {
-      //   dispatch(reset())
-      // }
+      return () => {
+        dispatch(reset())
+      }
     }, [building, isError, isSuccess, isLoading, dispatch, message]);
   
-  if(!building){
+  if(building === "" && !isLoading && !isError && !isSuccess){
     return (
       <>
         <div className="App overflow-y-hidden ">
@@ -51,7 +51,7 @@ const BuildingRoute = () => {
     }
 
 
-  if(building){
+  if(isSuccess){
     return (
       <>
         <div
