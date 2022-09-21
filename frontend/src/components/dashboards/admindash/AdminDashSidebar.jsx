@@ -42,8 +42,8 @@ const AdminDash = () => {
 if(showRegister){
   return (
     <>
-    <div className="flex">
-      <button onClick={() => setshowRegister(false)}>Get Update User Form</button>
+    <div className="flex flex-col ">
+      <button className='w-[250px] px-1 py-4' onClick={() => setshowRegister(false)}>Update User Account</button>
       <CreateUser />
     </div>
     </>
@@ -54,10 +54,15 @@ if(showRegister){
 if(!showRegister){
   return (
     <>
-    <div className="flex">
-    <button onClick={() => setshowRegister(true)}>Get Register Form</button>
-    <UpdateUserForm />
-    </div>
+      <div className="flex flex-col">
+        <button
+          className="w-[250px] px-1 py-4"
+          onClick={() => setshowRegister(true)}
+        >
+          Get Register Form
+        </button>
+        <UpdateUserForm />
+      </div>
     </>
   );
 }
