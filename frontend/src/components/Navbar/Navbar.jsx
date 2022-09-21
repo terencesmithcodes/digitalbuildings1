@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import { navLinks } from "./NavIcons";
 import { Link } from "react-router-dom";
 import {useRecoilState} from 'recoil'
 import { ActiveTabState } from "../../atoms/ActiveTabState";
+import { logout } from '../../features/auth/authSlice'
 
 function NavBar() {
   const [activeNavItem, setActiveNavItem] = useState();
@@ -23,6 +25,7 @@ function NavBar() {
 }
 
 function NavItem({ link }) {
+  const dispatch = useDispatch()
     const [activeNavItem, setActiveNavItem] = useRecoilState(ActiveTabState)
     return (
       <div
@@ -35,18 +38,20 @@ function NavItem({ link }) {
         // }
         } `}
       >
-        <span>{link.icon}</span>
-        <h1
+      <Link to='/'>
+        <span onClick={() => dispatch(logout())}>{link.icon}</span>
+        <button
           className={`text-gray-600 group-hover:text-black xl:flex hidden ${
-            activeNavItem === link.id && "text-black"
+            activeNavItem === link.id && "text-black" 
           }`}
         >
-          if(activeNavItem === {link.title}){
-            <Link to='/'>
-              </Link>
-          }
-        </h1>
+            
+
+        </button>
+      </Link>
+
       </div>
+     
     );
 }
 
