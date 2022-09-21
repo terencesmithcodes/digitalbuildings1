@@ -14,22 +14,22 @@ valHeader = {
 
 const cache = {};
 
-// const getBuilding = asyncHandler(async(buildingNum)=>{
-//   if (!cache[buildingNum]) {
-//     const response = await axios.get(URL + buildingNum,{
-//       headers: valHeader
-//     })
-//     cache[buildingNum] = response.data
-//   }
-
-//   return cache[buildingNum]
-// })
-
 const getBuilding = asyncHandler(async(buildingNum)=>{
-  const building = await Building.findOne({buildingId: buildingNum})
+  if (!cache[buildingNum]) {
+    const response = await axios.get(URL + buildingNum,{
+      headers: valHeader
+    })
+    cache[buildingNum] = response.data
+  }
 
-  return building
+  return cache[buildingNum]
 })
+
+// const getBuilding = asyncHandler(async(buildingNum)=>{
+//   const building = await Building.findOne({buildingId: buildingNum})
+
+//   return building
+// })
 
 
 const getBuildingPoints = asyncHandler(async(buildingNum)=>{
