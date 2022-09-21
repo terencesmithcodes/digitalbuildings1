@@ -3,9 +3,9 @@ import React, {useState} from 'react'
 
 const Selector = () => {
     const options = [
-    { label: 'Admin', value: 'Admin' },
-    { label: 'Energy Analyst', value: 'Facilities Engineer' },
-    { label: 'Facility Manager', value: 'Energy Analyst' },
+    { label: 'Building', value: '1' },
+    { label: 'Building', value: '2' },
+    { label: 'Building', value: '3' },
   ]
 
   const [value, setValue] = useState();
@@ -14,11 +14,11 @@ const Selector = () => {
     setValue(event.target.value);
   };
 return (
-  <div>
-    <label>
-      Roles
+  <div >
+    <label className='h-[500px]'>
+      
       <select
-        className="flex flex-col mt-1 mb-4 border relative bg-gray-100 py-2"
+        className="flex w-[200px] rounded-xl mt-1 mb-4 relative p-6 text-lg text-indigo-600 bg-gray-100"
         value={value}
         onChange={handleChange}
       >

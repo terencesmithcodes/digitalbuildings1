@@ -29,10 +29,7 @@ function NavItem({ link }) {
         onClick={() => setActiveNavItem(link.id)}
         className={`w-full flex items-center justify-start space-x-8 px-5 cursor-pointer group hover:border-gray-900 border-1-4 border-transparent ${
         activeNavItem === link.id && "border-gray-900"
-        // || if(activeNavItem === link.id && '3'){
-        //   <Link to='/home'>
-        //       </Link>
-        // }
+      
         } `}
       >
         <span>{link.icon}</span>
@@ -41,10 +38,8 @@ function NavItem({ link }) {
             activeNavItem === link.id && "text-black"
           }`}
         >
-          if(activeNavItem === {link.title}){
-            <Link to='/'>
-              </Link>
-          }
+          {link.title}
+            
         </h1>
       </div>
     );
