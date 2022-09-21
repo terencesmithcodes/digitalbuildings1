@@ -19,7 +19,7 @@ const EnergyTest = () => {
       console.log(message)
     }
     if(building === '' && !isLoading && !isError && !isSuccess){
-      dispatch(getEngeryAnalyses(18175))
+      dispatch(getEngeryAnalyses(1))
     }
 
   }, [building, isError, isSuccess, isLoading, dispatch, message])
