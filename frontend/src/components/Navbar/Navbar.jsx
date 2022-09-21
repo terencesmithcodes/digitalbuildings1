@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { navLinks } from "./NavIcons";
+import { Link } from "react-router-dom";
 import {useRecoilState} from 'recoil'
 import { ActiveTabState } from "../../atoms/ActiveTabState";
 
@@ -27,7 +28,11 @@ function NavItem({ link }) {
       <div
         onClick={() => setActiveNavItem(link.id)}
         className={`w-full flex items-center justify-start space-x-8 px-5 cursor-pointer group hover:border-gray-900 border-1-4 border-transparent ${
-          activeNavItem === link.id && "border-gray-900"
+        activeNavItem === link.id && "border-gray-900"
+        // || if(activeNavItem === link.id && '3'){
+        //   <Link to='/home'>
+        //       </Link>
+        // }
         } `}
       >
         <span>{link.icon}</span>
@@ -36,7 +41,10 @@ function NavItem({ link }) {
             activeNavItem === link.id && "text-black"
           }`}
         >
-          {link.title}
+          if(activeNavItem === {link.title}){
+            <Link to='/'>
+              </Link>
+          }
         </h1>
       </div>
     );
