@@ -35,6 +35,7 @@ app.use('/api/notes', require('./routes/noteRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/building', require('./routes/engineerRoutes'))
 app.use('/api/energy', require('./routes/energyRoutes'))
+app.use('/api/createbuilding', require('./routes/buildingRoutes'))
 
 
 app.use(errorHandler)
