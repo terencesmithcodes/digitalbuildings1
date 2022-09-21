@@ -39,44 +39,6 @@ const AdminDash = () => {
       dispatch(reset());
     }, [user, isError, isSuccess, message, navigate, dispatch]);
 
-    // const onChange = (e) => {
-    //   setFormData((prevState) => ({
-    //     ...prevState,
-    //     [e.target.name]: e.target.value,
-    //   }));
-    // };
-
-    // const onSubmit = (e) => {
-    //   e.preventDefault();
-
-    //   if (password !== password2) {
-    //     toast.error("Passwords do not match");
-    //   } else {
-    //     const userData = {
-    //       username,
-    //       email,
-    //       role,
-    //       password,
-    //     };
-
-    //     dispatch(register(userData));
-    //   }
-    // };
-
-    // if (isLoading) {
-    //   return <h1>Loading...</h1>;
-    // }
-
-  // const Dash = [
-  //   { title: "Home", src: "Home" },
-  //   { title: "Create User", src: "User" },
-  //   { title: "Update User", src: "User-update" },
-  //   { title: "Log Out", src: "User-logout", gap: true },
-    // { title: "Energy", src: "Analyst" },
-    // { title: "Messages", src: "Chat" },
-    // { title: "Messages", src: "Chat", gap:true},
-    // { title: "Messages", src: "Chat" },
-  // ];
 if(showRegister){
   return (
     <>

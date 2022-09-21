@@ -79,7 +79,7 @@ const CreateUserForm = () => {
         >
           <h2 className="text=4xl font-bold text-center py-2">Create User Account</h2>
           <div className="flex flex-col mb-4">
-            <label>Username</label>
+            
             <input
               className="border relative bg-gray-100 py-2"
               type="text"
@@ -91,7 +91,7 @@ const CreateUserForm = () => {
             />
           </div>
           <div className="flex flex-col mb-4">
-            <label>Password</label>
+            
             <input
               className="border relative bg-gray-100 py-2"
               type="password"
@@ -103,7 +103,7 @@ const CreateUserForm = () => {
             />
           </div>
           <div className="flex flex-col mb-4">
-            <label>Confirm Password</label>
+           
             <input
               className="border relative bg-gray-100 py-2"
               type="password"
@@ -115,7 +115,7 @@ const CreateUserForm = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label>Email</label>
+            
             <input
               className="border relative bg-gray-100 py-2"
               type="email"
@@ -128,7 +128,7 @@ const CreateUserForm = () => {
           </div>
 
           <div className="flex flex-col">
-            <label>Roles</label>
+           
             {/* <Selector /> */}
             <input
               className="border relative bg-gray-100 py-2"
