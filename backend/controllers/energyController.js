@@ -29,14 +29,13 @@ const getTopTrackRecords =(trackRecords) =>{
 
 const getEnergyAnaylses = asyncHandler(async(req, res) =>{
   let buildingId = req.params.id
-  let subId = req.params.sub
   let buildingData = await getBuilding(buildingId)
-  let buildingTrackRecords = await getBuildingTaskRecords(subId)
+  let buildingTrackRecords = await getBuildingTaskRecords(buildingId )
 
   let topTrackRecords = getTopTrackRecords(buildingTrackRecords[0].TaskRecords)
 
   res.status(200).json({
-    building: buildingData[0],
+    building: buildingData,
     trackRecords: topTrackRecords
   })
 

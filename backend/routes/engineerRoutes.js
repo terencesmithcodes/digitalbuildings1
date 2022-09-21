@@ -6,7 +6,7 @@ const {getEngineerBuilding} = require('../controllers/engineerController')
 // const {getBuilding, getBuildingPoints, getBuildingEquipment, getBuildingEquipmentClasses, getBuildingEquipmentClass, getBuildingEquipmentTypes, getBuildingEquipmentType, getBuildingEquipmentPoints, getBuildingTypes} = require('../controllers/buildingController')
 
 
-router.get('/:id/:sub', getEngineerBuilding)
+router.get('/:id', getEngineerBuilding)
 
 
 

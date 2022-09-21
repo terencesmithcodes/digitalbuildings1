@@ -90,11 +90,10 @@ const formatEquipment = (equipClasses, equipTypes, allEquip) => {
 
 const getEngineerBuilding = asyncHandler(async(req, res) => {
   let buildingId = req.params.id
-  let subId = req.params.sub
   let buildingData = await getBuilding(buildingId)
-  let equipmentClasses = await getBuildingEquipmentClasses(subId)
-  let equipmentTypes = await getBuildingEquipmentTypes(subId)
-  let allBuildingEquip = await getBuildingEquipment(subId)
+  let equipmentClasses = await getBuildingEquipmentClasses(buildingId)
+  let equipmentTypes = await getBuildingEquipmentTypes(buildingId)
+  let allBuildingEquip = await getBuildingEquipment(buildingId)
   let allAnalyses = await getAnalyses()
 
   const equipData = formatEquipment(equipmentClasses[0]["EquipmentClasses"], 
@@ -110,7 +109,7 @@ const getEngineerBuilding = asyncHandler(async(req, res) => {
   
 
   res.status(200).json({
-    building: buildingData[0],
+    building: buildingData,
     equipClasses: equipClasses,
     equipTypes: equipTypes,
     topAnalyses: shownAnalyses

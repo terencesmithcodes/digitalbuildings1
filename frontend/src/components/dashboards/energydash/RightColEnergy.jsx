@@ -21,7 +21,7 @@ const RightEnergyCol = () => {
       console.log(message);
     }
     if (building === "" && !isLoading && !isError && !isSuccess) {
-      dispatch(getEngBuilding(18175));
+      dispatch(getEngBuilding(1));
     }
   }, [building, isError, isSuccess, isLoading, dispatch, message]);
 

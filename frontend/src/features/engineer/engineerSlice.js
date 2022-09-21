@@ -19,8 +19,7 @@ export const getEngBuilding = createAsyncThunk(
   async (id, thunkAPI) =>{
     try {
       // const token = thunkAPI.getState().auth.user.token
-      return await engineerService.getEngBuilding(
-        id, 1)
+      return await engineerService.getEngBuilding(id)
     }catch(error){
       const message =
         (error.response &&

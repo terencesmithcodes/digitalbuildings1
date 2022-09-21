@@ -23,7 +23,7 @@ const LeftColEnergy = () => {
       console.log(message);
     }
     if (building === "" && !isLoading && !isError && !isSuccess) {
-      dispatch(getEngeryAnalyses(18175));
+      dispatch(getEngeryAnalyses(1));
     }
   }, [building, isError, isSuccess, isLoading, dispatch, message]);
 
@@ -55,17 +55,15 @@ const LeftColEnergy = () => {
             </div>
 
             <div className="justify-betweem flex flex-col -px-6  pb-4 w-full">
-              <span className=" border-b-2 p-2">{building.BuildingName}</span>
-              <span className=" border-b-2 p-2">{building.Address}</span>
-              <span className=" border-b-2 p-2">{building.City}</span>
-              <span className=" border-b-2 p-2">{building.StateName}</span>
-              <span className=" border-b-2 p-2">{building.Zip}</span>
-              <span className=" border-b-2 p-2">{building.Phone}</span>
-              <span className=" border-b-2 p-2">
-                Type: {building.BuildingTypeName}
-              </span>
-              <span className=" border-b-2 p-2"> {building.Area}</span>
-              <span className=" border-b-2 p-2"> {building.Floors}</span>
+              <span className=" border-b-2 p-2">{building.buildingName}</span>
+              <span className=" border-b-2 p-2">{building.address}</span>
+              <span className=" border-b-2 p-2">{building.city}</span>
+              <span className=" border-b-2 p-2">{building.state}</span>
+              <span className=" border-b-2 p-2">{building.zipcode}</span>
+              <span className=" border-b-2 p-2">{building.phoneNumber}</span>
+              <span className=" border-b-2 p-2">{building.buildingType}</span>
+              <span className=" border-b-2 p-2"> {building.area}</span>
+              <span className=" border-b-2 p-2"> {building.floors}</span>
             </div>
           </div>
           <div className="w-full items-start justify-start flex flex-col -ml-16 pt-12 pb-6">

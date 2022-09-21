@@ -24,7 +24,7 @@ const FacilityDash = () => {
       console.log(message);
     }
     if (building === "" && !isLoading && !isError && !isSuccess) {
-      dispatch(getEngBuilding(18175));
+      dispatch(getEngBuilding(1));
     }
 
  
@@ -98,14 +98,14 @@ const FacilityDash = () => {
           </div>
           <div className="grid md:grid-cols-3 bg-white text-lg text-indigo-600 h-[400px] w-[400px border p-8 rounded-xl shadow-xl] content-evenly ">
             <h1 className="font-bold text-xl"> Building Information</h1>
-            <span>Building Name: {building.BuildingName}</span>
-            <span>Address: {building.Address}</span>
-            <span>City: {building.City}</span>
-            <span>State: {building.StateName}</span>
-            <span>Zipcode: {building.Zip}</span>
-            <span>Type: {building.BuildingTypeName}</span>
-            <span>Area: {building.Area}</span>
-            <span>Floors: {building.Floors}</span>
+            <span>Building Name: {building.buildingName}</span>
+            <span>Address: {building.address}</span>
+            <span>City: {building.city}</span>
+            <span>State: {building.state}</span>
+            <span>Zipcode: {building.zipcode}</span>
+            <span>Type: {building.buildingType}</span>
+            <span>Area: {building.area}</span>
+            <span>Floors: {building.floors}</span>
           </div>
           <div className="h-[400px] w-[400px] border p-2 rounded-xl shadow-xl ">
             <EquipClassChart />
