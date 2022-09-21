@@ -36,12 +36,12 @@ const LeftColEnergy = () => {
  }
   if (isSuccess) {
     return (
-      <div className="col-span-2 min-h-[90vh] border-r border-feay-200 items-start justify-start flex flex-col w-full">
-        <div className="w-full items-start justify-start flex flex-col px-12 pt-12 pb-6">
+      <div className="col-span-2 min-h-[90vh] border-r border-feay-200 items-center justify-center flex flex-col w-full">
+        <div className="w-full items-center justify-center flex flex-col px-2 pt-12 pb-6">
           <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl pb-4">
-            Building Information
+            Building Profile
           </h1>
-          <div className="justify-between flex px-6 pt-8 pb-4 border-2 border-feay-200 rounded-xl shadow-xl -ml-16 mt-2 w-full">
+          <div className="justify-between flex px-4 pt-8 pb-4 border-2 border-feay-200 rounded-xl shadow-xl  mt-2 w-full">
             <div className="flex flex-col w-full border-r border-feay-200">
               <span className=" font-bold border-b-2 p-2">Building Name</span>
               <span className=" font-bold border-b-2 p-2">Address </span>
@@ -68,59 +68,26 @@ const LeftColEnergy = () => {
               <span className=" border-b-2 p-2"> {building.Floors}</span>
             </div>
           </div>
-          <div className="w-full items-start justify-start flex flex-col -ml-16 pt-12 pb-6">
+          <div className="w-full items-center justify-center flex flex-col px-2 pt-12 pb-6">
             <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl pb-4">
-              Top Reported Issues
+              Energy Cost Saving Tasks
             </h1>
-            {/* <div className=" flex px-6 pt-8 pb-4 border-2 border-feay-200 rounded-xl shadow-xl mt-2 w-full"> */}
-              <div>
+            <div className=" flex items-center justify-center px-6 pt-8 pb-4 border-2 border-feay-200 rounded-xl shadow-xl mt-2 w-full">
+              <div className="flex flex-col w-full border-feay-200">
                 {trackRecords.map((record) => (
-                  <div key={record.TaskID}>
-                    <h4>Task Id: {record.TaskID}</h4>
+                  <div className="text-lg p-2" key={record.TaskID}>
+                    <h4 className="border-b-2 p-2 font-bold text-xl">
+                      Task Id: {record.TaskID}
+                    </h4>
                     <h4>Equipment Id: {record.EID}</h4>
                     <h4>Equipment Issue: {record.Description}</h4>
-                    <h6>If Issue is resolved</h6>
-                    <h4>Annual Avoidable Cost: {record.AnnualAvoidableCost}</h4>
-                    <h4>
-                      Annual Avoidable HeatingUse:
-                      {record.AnnualAvoidableHeatingUse}
-                    </h4>
-                    <h4>
-                      AnnualAvoidableCoolingUse:
-                      {record.AnnualAvoidableCoolingUse}
-                    </h4>
-                    <br></br>
                   </div>
                 ))}
               </div>
-              {/* <div className="flex flex-col w-full">
-                {trackRecords.map(record => (
-                    <div key={record.TaskID}>
-                      <h5 className="text-2xl font-bold">
-                        Issue Type: {record.Description}
-                      </h5>
-                      <h4>Task Id: {record.TaskID}</h4>
-                      <h4>Equipment Id: {record.EID}</h4>
-                      <h4>Equipment Issue: {record.Description}</h4>
-                      <h6>If Issue is resolved</h6>
-                      <h4>
-                        Annual Avoidable Cost: {record.AnnualAvoidableCost}
-                      </h4>
-                      <h4>
-                        Annual Avoidable HeatingUse:
-                        {record.AnnualAvoidableHeatingUse}
-                      </h4>
-                      <h4>
-                        AnnualAvoidableCoolingUse:
-                        {record.AnnualAvoidableCoolingUse}
-                      </h4>
-                    </div>
-                ))}
-              </div> */}
             </div>
           </div>
         </div>
-      
+      </div>
     );
   }
 };
