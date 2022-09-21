@@ -1,5 +1,7 @@
 import React from 'react'
+import L from 'leaflet'
 import { MapContainer, TileLayer, Marker } from "react-leaflet"
+import mapMarker from '../../../assets/map-marker.png'
 // import { Marker } from "https://cdn.esm.sh/react-leaflet/Marker";
 // import { Popup } from "https://cdn.esm.sh/react-leaflet/Popup";
 
@@ -11,6 +13,12 @@ import { MapContainer, TileLayer, Marker } from "react-leaflet"
 //    iconSize: [38, 95],
 
 //  });
+const myIcon = new L.Icon({
+  iconUrl: mapMarker,
+  iconRetinaUrl: mapMarker,
+  popupAnchor: [-0, 0],
+  iconSize: [40, 45]
+})
 
 const LeafMap = () => {
     const position = [34.03, -84.69]
@@ -26,7 +34,7 @@ const LeafMap = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-          <Marker position={position}>
+          <Marker position={position} icon={myIcon}>
         {/* //     // icon={myIcon} */}
         {/* //   >
         // <Popup>
