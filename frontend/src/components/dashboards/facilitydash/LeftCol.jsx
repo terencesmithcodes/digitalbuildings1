@@ -44,6 +44,7 @@ const LeftCol = () => {
           <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl  pb-4">
             Building Profile
           </h1>
+          <button onClick={() => dispatch(reset())}>Get New Building</button>
           <div className="justify-between flex px-6 pt-8 pb-4 border-2 border-feay-200 rounded-xl shadow-xl mt-2 w-full ">
             <div className="flex flex-col w-full border-r border-feay-200">
               <span className=" font-bold border-b-2 p-2">Building Name</span>
