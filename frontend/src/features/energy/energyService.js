@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = 'http://localhost:5500/api/energy/'
+const API_URL = '/api/energy/'
 
 const getEnergyAnalyses = async (buildingNum) =>{
   // const config = {

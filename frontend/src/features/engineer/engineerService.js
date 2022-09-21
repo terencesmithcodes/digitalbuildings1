@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = 'http://localhost:5500/api/building/'
+const API_URL = '/api/building/'
 
 const getEngBuilding = async (buildingNum) => {
   // const config = {
