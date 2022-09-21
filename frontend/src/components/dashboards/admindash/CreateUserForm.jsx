@@ -70,18 +70,21 @@ const CreateUserForm = () => {
   }
 
   return (
-    <div className="p-7 text-2xl font-semibold flex-1 h-screen">
-      <h1 className="mb-5 text-center">Admin Dashboard</h1>
-      <div className="relative w-full h-screen">
+    <div className=" p-7 text-2xl font-semibold flex flex-col w-[1240px]">
+      <h1 className="flex flex-col w-full mb-5 text-center font-bold text-2xl">
+        Admin Dashboard
+      </h1>
+      <div className="">
         <form
           onSubmit={onSubmit}
           className="max-w-[800px] w-full mx-auto bg-zinc-200 p-8 rounded-xl drop-shadow-xl"
         >
-          <h2 className="text=4xl font-bold text-center py-2">Create User Account</h2>
+          <h2 className="text-xl font-bold text-center py-2">
+            Create User Account
+          </h2>
           <div className="flex flex-col mb-4">
-            
             <input
-              className="border relative bg-gray-100 py-2"
+              className="border rounded-lg relative bg-gray-100 mb-4 p-2 text-lg"
               type="text"
               id="username"
               name="username"
@@ -91,9 +94,8 @@ const CreateUserForm = () => {
             />
           </div>
           <div className="flex flex-col mb-4">
-            
             <input
-              className="border relative bg-gray-100 py-2"
+              className="border rounded-lg relative bg-gray-100 mb-2 p-2 text-lg"
               type="password"
               id="password"
               name="password"
@@ -103,9 +105,8 @@ const CreateUserForm = () => {
             />
           </div>
           <div className="flex flex-col mb-4">
-           
             <input
-              className="border relative bg-gray-100 py-2"
+              className="border rounded-lg relative bg-gray-100 mb-2 p-2 text-lg"
               type="password"
               id="password2"
               name="password2"
@@ -115,9 +116,8 @@ const CreateUserForm = () => {
             />
           </div>
           <div className="flex flex-col">
-            
             <input
-              className="border relative bg-gray-100 py-2"
+              className="border rounded-lg relative bg-gray-100 mb-2 p-2 text-lg"
               type="email"
               id="email"
               name="email"
@@ -127,11 +127,10 @@ const CreateUserForm = () => {
             />
           </div>
 
-          <div className="flex flex-col">
-           
+          <div className="flex flex-col items-center justify-center">
             {/* <Selector /> */}
             <input
-              className="border relative bg-gray-100 py-2"
+              className="border rounded-lg relative bg-gray-100 mb-2 mt-4 p-2 text-lg"
               type="text"
               id="role"
               name="role"
@@ -148,15 +147,15 @@ const CreateUserForm = () => {
             Submit
           </button>
         </form>
-        <div className="max-w-[600px] w-full mx-auto">
-          {/* <button
+        {/* <div className="max-w-[600px] w-full mx-auto">
+          <button
             onClick={() => dispatch(logout())}
             type="submit"
             className="w-full py-3 mt-8 bg-indigo-600 hover:bg-indigo-500 relative text-white"
           >
             Log Out
-          </button> */}
-        </div>
+          </button>
+        </div> */}
       </div>
     </div>
   );
