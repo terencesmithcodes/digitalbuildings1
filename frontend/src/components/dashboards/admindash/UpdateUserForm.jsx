@@ -16,11 +16,10 @@ const UpdateUserForm = () => {
     username: "",
     email: "",
     role: "",
-    password: "",
-    password2: "",
+    active: "",
   });
 
-  const { username, email, role, password, password2 } = formData;
+  const { username, email, role, active} = formData;
 
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
@@ -44,18 +43,15 @@ const UpdateUserForm = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (password !== password2) {
-      toast.error("Passwords do not match");
-    } else {
+   
       const userData = {
         username,
         email,
         role,
-        password,
+        active
       };
 
       dispatch(register(userData));
-    }
   };
 
   if (isLoading) {
@@ -71,42 +67,6 @@ const UpdateUserForm = () => {
           className="max-w-[800px] w-full mx-auto bg-zinc-200 p-8 rounded-xl drop-shadow-xl"
         >
           <h2 className="text=4xl font-bold text-center py-2">Update User Account</h2>
-          {/* <div className="flex flex-col mb-4">
-            <label>Username</label>
-            <input
-              className="border relative bg-gray-100 py-2"
-              type="text"
-              id="username"
-              name="username"
-              value={username}
-              placeholder="Enter your username"
-              onChange={onChange}
-            />
-          </div> */}
-          {/* <div className="flex flex-col mb-4">
-            <label>Password</label>
-            <input
-              className="border relative bg-gray-100 py-2"
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="Enter password"
-              onChange={onChange}
-            />
-          </div> */}
-          {/* <div className="flex flex-col mb-4">
-            <label>Confirm Password</label>
-            <input
-              className="border relative bg-gray-100 py-2"
-              type="password"
-              id="password2"
-              name="password2"
-              value={password2}
-              placeholder="Confirm password"
-              onChange={onChange}
-            />
-          </div> */}
           <div className="flex flex-col">
             <label>Email</label>
             <input
@@ -130,6 +90,19 @@ const UpdateUserForm = () => {
               name="role"
               value={role}
               placeholder="Enter role"
+              onChange={onChange}
+            />
+          </div>
+          <div className="flex flex-col">
+            <label>active</label>
+            {/* <Selector /> */}
+            <input
+              className="border relative bg-gray-100 py-2"
+              type="text"
+              id="active"
+              name="active"
+              value={active}
+              placeholder="Is user Active"
               onChange={onChange}
             />
           </div>
