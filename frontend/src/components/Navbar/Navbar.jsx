@@ -44,7 +44,8 @@ function NavItem({ link }) {
         >
             
 
-        </button>
+          </button>
+          {link.title}
       </Link>
 
 
