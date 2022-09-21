@@ -35,7 +35,7 @@ const getEnergyAnaylses = asyncHandler(async(req, res) =>{
   let topTrackRecords = getTopTrackRecords(buildingTrackRecords[0].TaskRecords)
 
   res.status(200).json({
-    building: buildingData,
+    building: buildingData[0],
     trackRecords: topTrackRecords
   })
 
