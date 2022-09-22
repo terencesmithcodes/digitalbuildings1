@@ -42,10 +42,11 @@ function NavItem({ link }) {
               activeNavItem === link.id && "text-black"
             }`}
           ></button>
+          <div className="text-gray-600 group-hover:text-black xl:flex hidden">
+          {link.title}
+          </div>
         </Link>
-        <div className="text-gray-600 group-hover:text-black xl:flex hidden">
-          <Link to="/">{link.title}</Link>
-        </div>
+        
       </div>
     );
 }
