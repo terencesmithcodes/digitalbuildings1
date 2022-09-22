@@ -48,7 +48,7 @@ const LeftCol = () => {
           <div className="justify-between flex px-6 pt-8 pb-4 border-2 border-feay-200 rounded-xl shadow-xl mt-2 w-full ">
             <div className="flex flex-col w-full border-r border-feay-200">
               <span className=" font-bold border-b-2 p-2">Building Name</span>
-              <span className=" font-bold border-b-2 p-2">Address </span>
+              {/* <span className=" font-bold border-b-2 p-2">Address </span> */}
               <span className=" font-bold border-b-2 p-2">City </span>
               <span className=" font-bold border-b-2 p-2">State </span>
               <span className=" font-bold border-b-2 p-2">Zipcode </span>
@@ -59,15 +59,15 @@ const LeftCol = () => {
             </div>
 
             <div className="justify-betweem flex flex-col -px-6  pb-4 w-full">
-              <span className=" border-b-2 p-2">{building.ClientName}</span>
-              <span className=" border-b-2 p-2">{building.Address}</span>
-              <span className=" border-b-2 p-2">{building.City}</span>
-              <span className=" border-b-2 p-2">{building.StateName}</span>
-              <span className=" border-b-2 p-2">{building.Zip}</span>
-              <span className=" border-b-2 p-2">{building.Phone}</span>
-              <span className=" border-b-2 p-2">{building.BuildingTypeName}</span>
-              <span className=" border-b-2 p-2"> {building.Area}</span>
-              <span className=" border-b-2 p-2"> {building.Floors}</span>
+            <span className=" border-b-2 p-2">{building.ClientName ? building.ClientName : 'Digital Building' }</span>
+              {/* <span className=" border-b-2 p-2">{building.Address ? building.Address : '5757 Oak South'}</span> */}
+              <span className=" border-b-2 p-2">{building.City ? building.City: 'Atlanta'}</span>
+              <span className=" border-b-2 p-2">{building.StateName ? building.StateName : 'Georgia'}</span>
+              <span className=" border-b-2 p-2">{building.Zip ? building.Zip : '77577'}</span>
+              <span className=" border-b-2 p-2">{building.Phone ? building.Phone : '4048675309'}</span>
+              <span className=" border-b-2 p-2">{building.BuildingTypeName ? building.BuildingTypeName : 'Secret Evil Lab'}</span>
+              <span className=" border-b-2 p-2"> {building.Area ? building.Area : '70,231'}</span>
+              <span className=" border-b-2 p-2"> {building.Floors ? building.Floors : '57'}</span>
             </div>
           </div>
           <div className="w-full items-start justify-center flex flex-col pt-12 pb-6 ">
