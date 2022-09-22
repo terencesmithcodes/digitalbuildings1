@@ -9,10 +9,11 @@ const Selector = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
     const options = [
+    { label: 'Select Building', value: '18175' },
     { label: 'MIT', value: '1' },
-    { label: 'University of Arizona', value: '7035' },
-    { label: 'SE Sweden Hosted', value: '7254' },
-    { label: 'Orange: Europe', value: '6973' },
+    { label: 'University of Arizona', value: '67' },
+    { label: 'SE Sweden Hosted', value: '69' },
+    { label: 'Orange: Europe', value: '70' },
   ]
   const {user} = useSelector((state) => state.auth);
 
@@ -28,6 +29,8 @@ const Selector = () => {
     }}catch(error){
       dispatch(getEngBuilding(event.target.value))
       navigate('/building')
+            // dispatch(getEngeryAnalyses(event.target.value));
+            // navigate("/energy");
     }
     
     
