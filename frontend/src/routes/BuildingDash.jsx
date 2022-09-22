@@ -41,8 +41,10 @@ const BuildingRoute = () => {
           <Header />
           <div className="w-full screen flex justify-center ">
             <Navbar />
+
             <div className="w-full h-screen grid grid-cols-3 mx-auto gap-4  content-center place-content-center">
-              <BuildingSelector />
+               <BuildingSelector transferTo={'building'} />
+
             </div>
           </div>
         </div>

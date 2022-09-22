@@ -2,6 +2,7 @@ import React from 'react'
 import buildSelectImg from '../../../assets/buildingSelector.jpg'
 import Selector from '../admindash/Selector';
 
+
 import {
   OfficeBuildingIcon,
   CogIcon,
@@ -17,8 +18,9 @@ const BuildingSelector = () => {
             Select Building <OfficeBuildingIcon />
           </h2>
           <div className="">
-            <Selector />
+            <Selector transfer={transferTo} />
           </div>
+
       </div>
     </>
 

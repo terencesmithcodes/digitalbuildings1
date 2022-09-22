@@ -34,8 +34,9 @@ function NavItem({ link }) {
           activeNavItem === link.id && "border-gray-900"
         } `}
       >
-        <Link to="/">
-          <span onClick={() => dispatch(logout())}>{link.icon}</span>
+
+        <Link onClick={link.title === 'LogOut' ? () => dispatch(logout()) : undefined} to='/'>
+          <span>{link.icon}</span>
           <button
             className={`text-gray-600 group-hover:text-black xl:flex hidden ${
               activeNavItem === link.id && "text-black"

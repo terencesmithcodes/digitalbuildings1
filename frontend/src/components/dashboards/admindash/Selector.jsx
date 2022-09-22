@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { getEngBuilding} from "../../../features/engineer/engineerSlice";
 import { getEngeryAnalyses} from "../../../features/energy/energySlice"
 
-const Selector = () => {
+const Selector = ({transfer}) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
     const options = [
@@ -18,19 +18,15 @@ const Selector = () => {
   const {user} = useSelector((state) => state.auth);
 
   // const [value, setValue] = useState();
-
+  console.log(transfer)
   const handleChange = (event) => {
-    try {if(user.role === 'energy'){
+
+    if(transfer === 'energy'){
+      navigate('/energy')
       dispatch(getEngeryAnalyses(event.target.value))
-    navigate('/energy')
     }else{
       dispatch(getEngBuilding(event.target.value))
       navigate('/building')
-    }}catch(error){
-      dispatch(getEngBuilding(event.target.value))
-      navigate('/building')
-      // navigate("/energy");
-      // dispatch(getEngeryAnalyses(event.target.value));
     }
     
     
