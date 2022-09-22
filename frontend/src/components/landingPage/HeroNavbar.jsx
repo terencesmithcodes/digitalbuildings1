@@ -32,50 +32,57 @@ const HeroNavbar = () => {
           <ul className="hidden md:flex">
             <li>
               <Link to="home" smooth={true} duration={500}>
-                Home
+                <button className="border-none bg-transparent text-black mr-4">
+                  Home
+                </button>
               </Link>
             </li>
             <li>
               <Link to="about" smooth={true} offset={-200} duration={500}>
-                About
+                <button className="border-none bg-transparent text-black mr-4">
+                  About
+                </button>
               </Link>
             </li>
             <li>
               <Link to="support" smooth={true} offset={-80} duration={500}>
-                Support
+                <button className="border-none bg-transparent text-black mr-4">
+                  Support
+                </button>
               </Link>
             </li>
             <li>
               <LinkDom to="/building">
-              <button className="border-none bg-transparent text-black mr-4">
-              Building
-              </button>
+                <button className="border-none bg-transparent text-black mr-4">
+                  Building
+                </button>
               </LinkDom>
             </li>
             <li>
               <LinkDom to="/energy">
-              <button className="border-none bg-transparent text-black mr-4">
-              Energy
-              </button>
+                <button className="border-none bg-transparent text-black mr-4">
+                  Energy
+                </button>
               </LinkDom>
             </li>
-
           </ul>
         </div>
         <div className="hidden md:flex pr-4">
           {user ? (
-            <button onClick={() => dispatch(logout())} className="border-none bg-transparent text-black mr-4">
-            Sign Out
-          </button>
+            <button
+              onClick={() => dispatch(logout())}
+              className="border-none bg-transparent text-black mr-4"
+            >
+              Sign Out
+            </button>
           ) : (
             <LinkDom to="login">
-            <button className="border-none bg-transparent text-black mr-4">
-              Sign In
-            </button>
-          </LinkDom>
-
+              <button className="border-none bg-transparent text-black mr-4">
+                Sign In
+              </button>
+            </LinkDom>
           )}
-          
+
           {/* <button className="px-8 py-3">Sign Up</button> */}
         </div>
         <div className="md:hidden mr-4" onClick={handleClick}>
@@ -85,7 +92,9 @@ const HeroNavbar = () => {
       <ul className={!nav ? "hidden" : "absolute bg-zinc-200 w-full px-8"}>
         <li className="border-b-2 border-zinc-300 w-full">
           <Link onClick={handleClose} to="home" smooth={true} duration={500}>
-            Home
+            <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
+              Home
+            </button>
           </Link>
         </li>
         <li className="border-b-2 border-zinc-300 w-full">
@@ -96,7 +105,9 @@ const HeroNavbar = () => {
             offset={-200}
             duration={500}
           >
-            About
+            <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
+              About
+            </button>
           </Link>
         </li>
         <li className="border-b-2 border-zinc-300 w-full">
@@ -107,24 +118,20 @@ const HeroNavbar = () => {
             offset={-80}
             duration={500}
           >
-            Support
+            <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
+              Support
+            </button>
           </Link>
         </li>
         <li className="border-b-2 border-zinc-300 w-full">
-          <LinkDom
-            onClick={handleClose}
-            to="/building"
-          >
-             <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
+          <LinkDom onClick={handleClose} to="/building">
+            <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
               Building
             </button>
           </LinkDom>
         </li>
         <li className="border-b-2 border-zinc-300 w-full">
-          <LinkDom
-            onClick={handleClose}
-            to="/building"
-          >
+          <LinkDom onClick={handleClose} to="/building">
             <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
               Energy
             </button>
@@ -132,18 +139,21 @@ const HeroNavbar = () => {
         </li>
         <div className="flex flex-col my-4">
           {user ? (
-            <button onClick={() => dispatch(logout())} className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
-            Sign Out
+            <button
+              onClick={() => dispatch(logout())}
+              className="bg-transparent text-indigo-600 px-8 py-3 mb-4"
+            >
+              Sign Out
             </button>
           ) : (
-            <LinkDom to='/login'>
-            <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
-            Sign In
-            </button>
-          </LinkDom>
+            <LinkDom to="/login">
+              <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
+                Sign In
+              </button>
+            </LinkDom>
           )}
-          
-          <button className="px-8 py-3">Sign Up</button>
+
+          {/* <button className="px-8 py-3">Sign Up</button> */}
         </div>
       </ul>
     </div>
