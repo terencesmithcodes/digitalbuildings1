@@ -12,7 +12,7 @@ import CoolHeatChart from "../../charts/CoolHeatChart";
 const RightEnergyCol = () => {
   const dispatch = useDispatch();
   const { building, equipClasses, isError, isSuccess, isLoading, message } =
-    useSelector((state) => state.engineer);
+    useSelector((state) => state.energy);
 
   useEffect(() => {
     if (isError) {
