@@ -8,6 +8,7 @@ import Navbar from '../components/Navbar/Navbar';
 import { getEngBuilding, reset } from "../features/engineer/engineerSlice";
 import { toast } from "react-toastify";
 import BuildingSelector from '../components/dashboards/buildingSelector.jsx/BuildingSelector';
+import Loading from "../components/dashboards/loading/Loading";
 
 const BuildingRoute = () => {
   //  const navigate = useNavigate();
@@ -33,6 +34,14 @@ const BuildingRoute = () => {
       //   dispatch(reset())
       // }
     }, [building, isError, isSuccess, isLoading, dispatch, message]);
+
+    if (isLoading) {
+      return (
+        <h1 className="flex flex-row justify-center mr-10 mt-8 w-full">
+          <Loading />
+        </h1>
+      );
+    }
   
   if(building === "" && !isLoading && !isError && !isSuccess){
     return (
