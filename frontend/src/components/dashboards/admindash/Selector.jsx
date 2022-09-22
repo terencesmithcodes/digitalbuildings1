@@ -11,9 +11,9 @@ const Selector = ({transfer}) => {
     const options = [
     { label: 'Select Building', value: '18175' },
     { label: 'MIT', value: '1' },
-    { label: 'University of Arizona', value: '67' },
-    { label: 'SE Sweden Hosted', value: '69' },
-    { label: 'Orange: Europe', value: '70' },
+    { label: 'Rudin', value: '5458' },
+    { label: 'Hines', value: '5625' },
+    { label: 'Alexandria', value: '5783' },
   ]
   const {user} = useSelector((state) => state.auth);
 
