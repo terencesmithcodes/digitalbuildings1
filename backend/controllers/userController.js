@@ -12,8 +12,12 @@ const timesToSaltPW = 10
 //@access Private
 const createNewUser = asyncHandler(async(req, res) =>{
   const {username, email, password, role} = req.body
-  console.log('create')
+  console.log(`user: ${req.user}`)
   
+  if(req.user.id.role !== 'admin'){
+    res.status(401)
+    throw new Error('User not authorized')
+  }
 
   if (!username || !password || !email || !role){
     res.status(400)

@@ -5,12 +5,12 @@ const {createNewUser, loginUser, updateUser, getMe } = require('../controllers/u
 const {protect} = require('../middleware/authMiddleware')
 
 
-router.post('/create', createNewUser)
+router.post('/create', protect, createNewUser)
 
 router.post('/login', loginUser)
 
-router.put(':id', protect, updateUser)
+router.put(':id',  updateUser)
 
-router.get('/me', protect, getMe)
+router.get('/me', getMe)
 
 module.exports = router
