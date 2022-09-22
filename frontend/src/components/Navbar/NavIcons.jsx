@@ -3,14 +3,15 @@ import {
   CogIcon,
   LogoutIcon,
   TemplateIcon,
+  HomeIcon
   
 } from "@heroicons/react/outline";
 
 export const navLinks = [
   {
     id: 0,
-    title: "Dashboard",
-    icon: <TemplateIcon className="nav-icon" />,
+    title: "Home",
+    icon: <HomeIcon className="nav-icon" />,
   },
   // {
   //   id: 1,
