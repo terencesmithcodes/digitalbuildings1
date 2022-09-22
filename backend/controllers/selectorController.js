@@ -13,7 +13,7 @@ const getbuildingIds = (buildings) =>{
 const getAllBuildingIds = asyncHandler(async(req, res) =>{
   let buildingIds = await getAllBuildings()
 
-  let buildingShortList = buildingIds.slice(0,10)
+  let buildingShortList = buildingIds.slice(100,1100)
 
   let shortListIds = getbuildingIds(buildingShortList)
 
