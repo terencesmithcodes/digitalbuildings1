@@ -29,8 +29,8 @@ const Selector = () => {
     }}catch(error){
       dispatch(getEngBuilding(event.target.value))
       navigate('/building')
-            // dispatch(getEngeryAnalyses(event.target.value));
-            // navigate("/energy");
+      // navigate("/energy");
+      // dispatch(getEngeryAnalyses(event.target.value));
     }
     
     

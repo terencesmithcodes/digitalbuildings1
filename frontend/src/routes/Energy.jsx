@@ -36,12 +36,12 @@ const EnergyRoute = () => {
   if(building === "" && !isLoading && !isError && !isSuccess){
     return (
       <>
-        <div className="App overflow-y-hidden ">
+        <div className=" ">
           <Header />
-          <div className="w-full min-h-[90vh] grid grid-cols-12">
+          <div className="w-full screen flex justify-center ">
             <Navbar />
-            <div className="grid grid-cols-1 xl:grid-cols-5 col-span-10 w-full">
-              <BuildingSelector  />
+            <div className="w-full h-screen grid grid-cols-3 mx-auto gap-4  content-center place-content-center">
+              <BuildingSelector />
             </div>
           </div>
         </div>

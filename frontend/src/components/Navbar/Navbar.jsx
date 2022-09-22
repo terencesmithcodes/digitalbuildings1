@@ -31,26 +31,21 @@ function NavItem({ link }) {
       <div
         onClick={() => setActiveNavItem(link.id)}
         className={`w-full flex items-center justify-start space-x-8 px-5 cursor-pointer group hover:border-gray-900 border-1-4 border-transparent ${
-        activeNavItem === link.id && "border-gray-900"
-      
+          activeNavItem === link.id && "border-gray-900"
         } `}
       >
-      <Link to='/'>
-        <span onClick={() => dispatch(logout())}>{link.icon}</span>
-        <button
-          className={`text-gray-600 group-hover:text-black xl:flex hidden ${
-            activeNavItem === link.id && "text-black" 
-          }`}
-        >
-            
-
-          </button>
-          {link.title}
-      </Link>
-
-
+        <Link to="/">
+          <span onClick={() => dispatch(logout())}>{link.icon}</span>
+          <button
+            className={`text-gray-600 group-hover:text-black xl:flex hidden ${
+              activeNavItem === link.id && "text-black"
+            }`}
+          ></button>
+        </Link>
+        <div className="text-gray-600 group-hover:text-black xl:flex hidden">
+          <Link to="/">{link.title}</Link>
+        </div>
       </div>
-     
     );
 }
 
