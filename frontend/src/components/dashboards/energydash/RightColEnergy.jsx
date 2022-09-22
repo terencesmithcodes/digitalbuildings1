@@ -34,11 +34,11 @@ const RightEnergyCol = () => {
   if (isSuccess) {
     return (
       <div className="col-span-3 min-h-[90vh] items-start justify-start flex flex-col w-full pt-12">
-        <div className="w-full items-center justify-center flex flex-col px-12 pb-6 ">
-          <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl pb-4 ">
+        <div className="w-full items-center justify-center flex flex-col px-12 pb-4 ">
+          <h1 className="font-bold text-indigo-600 text-xl  pb-4 ">
             Building Location
           </h1>
-          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2 w-full ">
+          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-8 w-full ">
             <LeafMap />
           </div>
           <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl mt-4 pb-2">
