@@ -5,7 +5,7 @@ const {protect} = require('../middleware/authMiddleware')
 
 const {getEnergyAnaylses} =require('../controllers/energyController')
 
-router.get('/:id', protect, getEnergyAnaylses)
+router.get('/:id', getEnergyAnaylses)
 
 
 module.exports = router
