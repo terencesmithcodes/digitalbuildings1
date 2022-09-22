@@ -27,7 +27,6 @@ const Selector = ({transfer}) => {
     }else{
       dispatch(getEngBuilding(event.target.value))
       navigate('/building')
-     // navigate("/energy");
     }
     
     

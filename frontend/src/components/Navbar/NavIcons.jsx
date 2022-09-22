@@ -12,16 +12,16 @@ export const navLinks = [
     title: "Dashboard",
     icon: <TemplateIcon className="nav-icon" />,
   },
-  {
-    id: 1,
-    title: "Select Building",
-    icon: <OfficeBuildingIcon className="nav-icon" />,
-  },
-  {
-    id: 2,
-    title: "Settings",
-    icon: <CogIcon className="nav-icon" />,
-  },
+  // {
+  //   id: 1,
+  //   title: "Select Building",
+  //   icon: <OfficeBuildingIcon className="nav-icon" />,
+  // },
+  // {
+  //   id: 2,
+  //   title: "Settings",
+  //   icon: <CogIcon className="nav-icon" />,
+  // },
   {
     id: 3,
     title: "LogOut",
