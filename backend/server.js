@@ -28,7 +28,6 @@ app.use((req, res, next) => {
     },
   };
 
-  console.log(`Incoming ${req.method} ${req.url}\n${JSON.stringify(request)}`);
   return next();
   
 })

@@ -14,7 +14,7 @@ const createNewUser = asyncHandler(async(req, res) =>{
   const {username, email, password, role} = req.body
   console.log(`user: ${req.user}`)
   
-  if(req.user.id.role !== 'admin'){
+  if(req.user.role !== 'admin'){
     res.status(401)
     throw new Error('User not authorized')
   }

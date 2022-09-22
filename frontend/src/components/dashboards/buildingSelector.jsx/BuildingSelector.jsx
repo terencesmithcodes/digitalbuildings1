@@ -2,7 +2,7 @@ import React from 'react'
 import buildSelectImg from '../../../assets/buildingSelector.jpg'
 import Selector from '../admindash/Selector';
 
-const BuildingSelector = () => {
+const BuildingSelector = ({transferTo}) => {
   return (
     <div className="w-[1440px] h-screen flex mx-32 my-32 px-10 py-10 ">
       <div className="grid grid-cols-1 md:grid-cols-2 h-[600px] shadow-xl mx-32 my-32  ">
@@ -15,7 +15,7 @@ const BuildingSelector = () => {
               Select Building
             </h2>
             <div className="flex justify-center">
-              <Selector />
+              <Selector transfer={transferTo} />
             </div>
           </form>
         </div>
