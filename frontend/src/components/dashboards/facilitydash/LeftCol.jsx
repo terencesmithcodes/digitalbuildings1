@@ -32,7 +32,7 @@ const LeftCol = () => {
 
   if (isLoading) {
     return (
-      <h1 className="flex flex-row justify-center mr-10 mt-8 w-full">
+      <h1 className="flex flex-row justify-center mr-10 mt-10 w-full">
         <Loading />
       </h1>
     );
