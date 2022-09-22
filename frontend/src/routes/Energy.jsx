@@ -9,6 +9,7 @@ import RightColEnergy from "../components/dashboards/energydash/RightColEnergy";
 import Header from "../components/Navbar/Header";
 import Navbar from "../components/Navbar/Navbar";
 import BuildingSelector from '../components/dashboards/buildingSelector.jsx/BuildingSelector';
+import Loading from "../components/dashboards/loading/Loading";
 
 
 const EnergyRoute = () => {
@@ -32,6 +33,14 @@ const EnergyRoute = () => {
     //   dispatch(reset())
     // }
   }, [building, isError, isSuccess, isLoading, message]);
+
+  if (isLoading) {
+    return (
+      <h1 className="flex flex-row justify-center mr-10 mt-8 w-full">
+        <Loading />
+      </h1>
+    );
+  }
 
   if(building === "" && !isLoading && !isError && !isSuccess){
     return (
