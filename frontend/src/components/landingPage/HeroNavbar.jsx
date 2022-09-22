@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+
+import { logout } from '../../features/auth/authSlice'
 
 import {
   Link,
@@ -11,7 +13,11 @@ import { Link as LinkDom } from 'react-router-dom'
 
 
 const HeroNavbar = () => {
+  const dispatch = useDispatch()
   const [nav, setNav] = useState(false);
+  const { user} = useSelector(
+    (state) => state.auth
+  )
   const handleClick = () => setNav(!nav);
 
   const handleClose = () => setNav(!nav)
@@ -39,15 +45,37 @@ const HeroNavbar = () => {
                 Support
               </Link>
             </li>
+            <li>
+              <LinkDom to="/building">
+              <button className="border-none bg-transparent text-black mr-4">
+              Building
+              </button>
+              </LinkDom>
+            </li>
+            <li>
+              <LinkDom to="/energy">
+              <button className="border-none bg-transparent text-black mr-4">
+              Energy
+              </button>
+              </LinkDom>
+            </li>
 
           </ul>
         </div>
         <div className="hidden md:flex pr-4">
-          <LinkDom to="login">
+          {user ? (
+            <button onClick={() => dispatch(logout())} className="border-none bg-transparent text-black mr-4">
+            Sign Out
+          </button>
+          ) : (
+            <LinkDom to="login">
             <button className="border-none bg-transparent text-black mr-4">
               Sign In
             </button>
           </LinkDom>
+
+          )}
+          
           {/* <button className="px-8 py-3">Sign Up</button> */}
         </div>
         <div className="md:hidden mr-4" onClick={handleClick}>
@@ -82,12 +110,39 @@ const HeroNavbar = () => {
             Support
           </Link>
         </li>
+        <li className="border-b-2 border-zinc-300 w-full">
+          <LinkDom
+            onClick={handleClose}
+            to="/building"
+          >
+             <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
+              Building
+            </button>
+          </LinkDom>
+        </li>
+        <li className="border-b-2 border-zinc-300 w-full">
+          <LinkDom
+            onClick={handleClose}
+            to="/building"
+          >
+            <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
+              Energy
+            </button>
+          </LinkDom>
+        </li>
         <div className="flex flex-col my-4">
-          <LinkDom to='/login'>
+          {user ? (
+            <button onClick={() => dispatch(logout())} className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
+            Sign Out
+            </button>
+          ) : (
+            <LinkDom to='/login'>
             <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">
             Sign In
             </button>
           </LinkDom>
+          )}
+          
           <button className="px-8 py-3">Sign Up</button>
         </div>
       </ul>
