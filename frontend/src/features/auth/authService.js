@@ -1,11 +1,15 @@
 import axios from "axios";
 
-const API_URL = 'http://localhost:5500/api/users/'
+const API_URL = '/api/users/'
 
-const register = async (userData) => {
-  console.log(userData)
-  console.log(API_URL)
-  const response = await axios.post(API_URL + 'create', userData)
+const register = async (userData, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+
+  const response = await axios.post(API_URL + 'create', userData, config)
 
   return response.data
 }
