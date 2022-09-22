@@ -2,30 +2,9 @@ const axios = require('axios')
 const asyncHandler = require('express-async-handler')
 
 const {getBuilding, getBuildingTaskRecords} = require('../apiUtility/buildingApi')
+const { getTopTrackRecords } = require('../funcUtility/energyFunctions')
 
-const getTopTrackRecords =(trackRecords) =>{
-  let fullTrackRecords = []
-  trackRecords.forEach(record =>{
-    const {AnnualAvoidableCost, 
-      AnnualAvoidableCoolingUse, 
-      AnnualAvoidableHeatingUse,
-      EID, Description, TaskID} = record
-      if(AnnualAvoidableCost &&
-        AnnualAvoidableCoolingUse &&
-        AnnualAvoidableHeatingUse
-        ){
-           fullTrackRecords.push({
-            TaskID,
-            EID, 
-            Description, 
-            AnnualAvoidableCost, 
-            AnnualAvoidableHeatingUse, 
-            AnnualAvoidableCoolingUse})
-        }
 
-  })
-  return fullTrackRecords
-}
 
 const getEnergyAnaylses = asyncHandler(async(req, res) =>{
   let buildingId = req.params.id
