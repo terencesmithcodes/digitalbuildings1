@@ -13,15 +13,45 @@ const mockEnergyData = {
     "Address": "123 Main Street",
     "City": "Metropolis",
     "State": "New York",
+    "StateName": "New York",
     "ZipCode": "10001",
+    "Zip": "10001",
+    "Phone": "(212) 555-7890",
     "Latitude": 40.7128,
     "Longitude": -74.0060,
     "SquareFootage": 250000,
+    "Area": "250,000",
     "NumFloors": 15,
+    "Floors": 15,
+    "BuildingTypeName": "Office",
     "PrimaryUse": "Office",
     "YearBuilt": 1995,
-    "LastRenovation": 2018
+    "LastRenovation": 2018,
+    "ClientName": "Corporate HQ Building"
   },
+  // Track records for energy efficiency tasks
+  trackRecords: [
+    {
+      "TaskID": "ECM-001",
+      "EID": "AHU-1",
+      "Description": "Air Handler tuning recommended to address 5% efficiency decrease"
+    },
+    {
+      "TaskID": "ECM-002",
+      "EID": "CH-2",
+      "Description": "Chiller maintenance required - efficiency at 78%, needs condenser coil cleaning"
+    },
+    {
+      "TaskID": "ECM-003",
+      "EID": "BLR-1",
+      "Description": "Boiler combustion efficiency at 87%, recommend burner inspection and tuning"
+    },
+    {
+      "TaskID": "ECM-004",
+      "EID": "FL-F4",
+      "Description": "Replace fluorescent fixtures with LED lighting to reduce energy consumption by 30%"
+    }
+  ],
   analyses: [
     {
       "name": "Air Handler Efficiency Analysis",

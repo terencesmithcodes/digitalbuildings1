@@ -25,40 +25,31 @@ ChartJS.register(
 );
 
 const EnergyLineChart = () => {
+  const { trackRecords, energyData } = useSelector((state) => state.energy);
+  
+  // Default monthly labels
+  const months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+  ];
+  
+  // Use mock data for monthly costs
+  const monthlyCosts = energyData?.monthlyCost || [7500, 7800, 8200, 8100, 7900, 8600, 9200, 9400, 8800, 8100, 7800, 7600];
+
   const data = {
-    // labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-    labels: [],
+    labels: months,
     datasets: [
       {
-        label: "Annual Avoidable Cost",
-        // data: [12, 19, 3, 5, 2, 3],
-        data: [],
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)",
-        ],
-        borderWidth: 1,
+        label: "Monthly Energy Cost ($)",
+        data: monthlyCosts,
+        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        borderColor: "rgba(75, 192, 192, 1)",
+        borderWidth: 2,
+        tension: 0.4,
+        fill: true,
       },
     ],
   };
-  const { trackRecords } = useSelector((state) => state.energy);
-
-  trackRecords.forEach((record) => {
-      data.labels.push(record.TaskID);
-    data.datasets[0].data.push(record.AnnualAvoidableCost);
-  });
 
   return <Line data={data} />;
 };
