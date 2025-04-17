@@ -36,13 +36,17 @@ const mockUsers = {
 
 // Password validation rules
 const validatePassword = (password) => {
-  // At least 6 characters
-  if (password.length < 6) return false;
+  // Check minimum length
+  if (password.length < 8) return false;
   
-  // You can add more validation rules here, such as:
-  // - Must contain at least one number
-  // - Must contain at least one uppercase letter
-  // - Must contain at least one special character
+  // Must contain at least one number
+  if (!/\d/.test(password)) return false;
+  
+  // Must contain at least one uppercase letter
+  if (!/[A-Z]/.test(password)) return false;
+  
+  // Must contain at least one special character
+  if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) return false;
   
   return true;
 };
@@ -85,16 +89,21 @@ const login = async (userData) => {
       const { username, password } = userData;
       
       // Check if username exists in mock users or use demo as fallback
-      const mockUser = mockUsers[username.toLowerCase()] || mockUsers.demo;
+      const mockUser = mockUsers[username.toLowerCase()];
       
-      // Simulate basic password validation (don't do this in production!)
-      if (
+      if (!mockUser) {
+        throw new Error('Invalid credentials');
+      }
+      
+      // For GitHub Pages demo, we use hardcoded credentials
+      // In production, this would be a bcrypt compare or similar
+      const isValidCredential = (
         (username === 'admin' && password === 'Admin_Secure_P@ss2025!') ||
         (username === 'demo' && password === 'demo123') ||
-        (username === 'energy' && password === 'energy123') ||
-        // For demo purposes, allow any "demo" password that's at least 6 chars
-        (password.length >= 6 && password.includes('demo'))
-      ) {
+        (username === 'energy' && password === 'energy123')
+      );
+      
+      if (isValidCredential) {
         // Clone the user object to avoid reference issues
         const user = { ...mockUser };
         

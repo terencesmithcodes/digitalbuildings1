@@ -106,7 +106,8 @@ const getMe = asyncHandler(async(req, res) =>{
 })
 
 const generateToken = (id)=>{
-  return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: '30d'})
+  // Reduce token expiration to 24 hours for better security
+  return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: '24h'})
 }
 
 

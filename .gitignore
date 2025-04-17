@@ -24,6 +24,9 @@ logs
 # Local developer documentation
 .tours/
 DEVELOPER.md
+README.personal.md
+setup-personal-git.sh
+test.txt
 
 npm-debug.log*
 yarn-debug.log*
