@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { login, reset } from '../../features/auth/authSlice';
-import loginHero from '../../assets/login.jpg';
 import { FaEye, FaEyeSlash, FaLock, FaUser } from 'react-icons/fa';
 
 const LoginForm = () => {
@@ -59,29 +58,14 @@ const LoginForm = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     setFormSubmitted(true);
     
-    // Log detailed event information for debugging
-    console.log('Form submitted', { 
-      username, 
-      password: password ? '****' : null, 
-      eventType: e.type, 
-      eventTarget: e.target?.tagName,
-      eventCurrentTarget: e.currentTarget?.tagName
-    });
+    console.log('Form submitted', { username });
     
     // Validate form
     if (!username || !password) {
       toast.error('Please fill in all fields');
-      console.log('Validation failed: Empty fields');
-      return;
-    }
-    
-    // Password strength check
-    if (password.length < 6 && !isGitHubPages) {
-      toast.warning('Password should be at least 6 characters long');
-      console.log('Validation failed: Password too short');
       return;
     }
 
@@ -90,7 +74,6 @@ const LoginForm = () => {
       password,
     };
 
-    console.log('Dispatching login action');
     try {
       dispatch(login(userData));
       console.log('Login action dispatched');
@@ -111,52 +94,27 @@ const LoginForm = () => {
       credentials = { username: 'energy', password: 'energy123' };
     }
     
-    console.log('Using credentials for demo login');
-    
-    // Populate form with demo credentials
+    // Set form data and dispatch login directly
     setFormData(credentials);
-    
-    // Directly dispatch login action for demo accounts
-    // Bypassing the form submission to avoid any potential issues
-    setTimeout(() => {
-      console.log('Directly dispatching demo login');
-      try {
-        dispatch(login(credentials));
-        console.log('Demo login dispatched successfully');
-      } catch (error) {
-        console.error('Demo login dispatch error:', error);
-      }
-    }, 300);
+    dispatch(login(credentials));
   };
 
   return (
-    <div className="relative w-full h-screen bg-zinc-900/100">
-      {/* Debug outline to find any invisible overlays */}
-      <div style={{position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', border: '1px dashed rgba(255,0,0,0.3)', pointerEvents: 'none', zIndex: 99}}></div>
-      
-      <img
-        className="absolute w-full h-full object-cover mix-blend-overlay pointer-events-none"
-        src={loginHero}
-        alt="login"
-      />
-
-      <div className="flex h-full justify-center items-center relative z-10">
-        <div className="max-w-md w-full mx-auto bg-white p-8 rounded-xl shadow-2xl">
-          <div className="flex justify-center mb-6">
-            <div className="bg-indigo-600 p-3 rounded-full">
-              <FaLock className="text-white text-2xl" />
-            </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full bg-white rounded-lg shadow-xl overflow-hidden">
+        <div className="bg-indigo-600 py-4">
+          <div className="text-center">
+            <FaLock className="mx-auto text-white text-3xl" />
+            <h2 className="mt-2 text-xl font-bold text-white">Digital Building Analytics</h2>
           </div>
-          
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-            Digital Building Analytics
-          </h2>
-          
+        </div>
+        
+        <div className="p-8">
           <p className="text-center text-gray-600 mb-8">
             Secure access to building management and energy data
           </p>
           
-          <form onSubmit={handleSubmit} className="relative z-[40]">
+          <form onSubmit={handleSubmit}>
             <div className="mb-6">
               <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="username">
                 Username
@@ -211,11 +169,9 @@ const LoginForm = () => {
             </div>
             
             <button 
-              className={`w-full py-3 rounded-lg text-white font-medium transition-colors relative z-[50] login-button ${isLoading ? 'bg-indigo-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'}`}
+              className="w-full py-3 rounded-lg text-white font-medium bg-indigo-600 hover:bg-indigo-700 transition-colors"
               type="submit"
               disabled={isLoading}
-              onMouseOver={() => console.log('Button hover detected')}
-              onMouseDown={() => console.log('Button mouse down')}
             >
               {isLoading ? 'Signing In...' : 'Sign In'}
             </button>
@@ -225,45 +181,46 @@ const LoginForm = () => {
             <div className="mt-8 border-t pt-6">
               <p className="text-center text-sm text-gray-600 mb-4">Demo Accounts</p>
               <div className="flex justify-center space-x-4">
-                <button 
+                <a 
+                  href="#" 
                   onClick={(e) => {
-                    e.stopPropagation();
                     e.preventDefault();
                     handleDemoLogin('admin');
-                    console.log('Admin demo button clicked');
                   }}
-                  type="button" 
-                  className="px-4 py-2 bg-blue-600 !text-white text-sm rounded-md hover:bg-blue-700 relative z-[50] !pointer-events-auto"
+                  className="px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 inline-block"
                 >
                   Admin Demo
-                </button>
-                <button 
+                </a>
+                <a 
+                  href="#" 
                   onClick={(e) => {
-                    e.stopPropagation();
                     e.preventDefault();
                     handleDemoLogin('engineer');
-                    console.log('Engineer demo button clicked');
                   }}
-                  type="button"
-                  className="px-4 py-2 bg-green-600 !text-white text-sm rounded-md hover:bg-green-700 relative z-[50] !pointer-events-auto"
+                  className="px-4 py-2 bg-green-600 text-white text-sm rounded-md hover:bg-green-700 inline-block"
                 >
                   Engineer Demo
-                </button>
-                <button 
+                </a>
+                <a 
+                  href="#" 
                   onClick={(e) => {
-                    e.stopPropagation();
                     e.preventDefault();
                     handleDemoLogin('energy');
-                    console.log('Energy demo button clicked');
                   }}
-                  type="button"
-                  className="px-4 py-2 bg-purple-600 !text-white text-sm rounded-md hover:bg-purple-700 relative z-[50] !pointer-events-auto"
+                  className="px-4 py-2 bg-purple-600 text-white text-sm rounded-md hover:bg-purple-700 inline-block"
                 >
                   Energy Demo
-                </button>
+                </a>
               </div>
             </div>
           )}
+          
+          <div className="mt-4 text-center text-sm">
+            <p>Demo Credentials:</p>
+            <p>Admin: admin / Admin_Secure_P@ss2025!</p>
+            <p>Engineer: demo / demo123</p>
+            <p>Energy: energy / energy123</p>
+          </div>
         </div>
       </div>
     </div>
