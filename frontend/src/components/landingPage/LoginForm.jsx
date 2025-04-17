@@ -62,15 +62,23 @@ const LoginForm = () => {
     e.preventDefault();
     setFormSubmitted(true);
     
+    // Mark function as called to prevent double execution
+    handleSubmit.called = true;
+    setTimeout(() => { handleSubmit.called = false; }, 1000);
+    
+    console.log('Form submitted', { username, password });
+    
     // Validate form
     if (!username || !password) {
       toast.error('Please fill in all fields');
+      console.log('Validation failed: Empty fields');
       return;
     }
     
     // Password strength check
     if (password.length < 6 && !isGitHubPages) {
       toast.warning('Password should be at least 6 characters long');
+      console.log('Validation failed: Password too short');
       return;
     }
 
@@ -79,10 +87,21 @@ const LoginForm = () => {
       password,
     };
 
-    dispatch(login(userData));
+    console.log('Dispatching login action', userData);
+    try {
+      dispatch(login(userData));
+      console.log('Login action dispatched');
+    } catch (error) {
+      console.error('Login dispatch error:', error);
+    }
   };
   
+  // Initialize the called property
+  handleSubmit.called = false;
+  
   const handleDemoLogin = (role) => {
+    console.log('Demo login clicked for role:', role);
+    
     // Demo credentials for different roles
     let credentials = { username: 'demo', password: 'demo123' };
     
@@ -92,24 +111,46 @@ const LoginForm = () => {
       credentials = { username: 'energy', password: 'energy123' };
     }
     
+    console.log('Using credentials:', credentials);
+    
     // Populate form with demo credentials
     setFormData(credentials);
     
+    // Create synthetic submit event
+    const syntheticEvent = {
+      preventDefault: () => console.log('Preventing default for synthetic event')
+    };
+    
     // Auto-submit after a short delay
     setTimeout(() => {
-      dispatch(login(credentials));
+      console.log('Auto-submitting demo login');
+      try {
+        // Use handleSubmit for consistency and to trigger form validation
+        setFormData(credentials); // Ensure form data is set
+        handleSubmit(syntheticEvent);
+        console.log('Demo login dispatched through handleSubmit');
+      } catch (error) {
+        console.error('Demo login error:', error);
+        // Fallback method if handleSubmit fails
+        try {
+          dispatch(login(credentials));
+          console.log('Demo login dispatched directly');
+        } catch (innerError) {
+          console.error('Fallback demo login error:', innerError);
+        }
+      }
     }, 300);
   };
 
   return (
     <div className="relative w-full h-screen bg-zinc-900/100">
       <img
-        className="absolute w-full h-full object-cover mix-blend-overlay"
+        className="absolute w-full h-full object-cover mix-blend-overlay pointer-events-none"
         src={loginHero}
         alt="login"
       />
 
-      <div className="flex h-full justify-center items-center">
+      <div className="flex h-full justify-center items-center relative z-10">
         <div className="max-w-md w-full mx-auto bg-white p-8 rounded-xl shadow-2xl">
           <div className="flex justify-center mb-6">
             <div className="bg-indigo-600 p-3 rounded-full">
@@ -180,9 +221,15 @@ const LoginForm = () => {
             </div>
             
             <button 
-              className={`w-full py-3 rounded-lg text-white font-medium transition-colors ${isLoading ? 'bg-indigo-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'}`}
+              className={`w-full py-3 rounded-lg text-white font-medium transition-colors relative z-20 ${isLoading ? 'bg-indigo-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'}`}
               type="submit"
               disabled={isLoading}
+              onClick={(e) => {
+                console.log('Sign In button clicked');
+                if (!handleSubmit.called) {
+                  handleSubmit(e);
+                }
+              }}
             >
               {isLoading ? 'Signing In...' : 'Sign In'}
             </button>
@@ -193,20 +240,32 @@ const LoginForm = () => {
               <p className="text-center text-sm text-gray-600 mb-4">Demo Accounts</p>
               <div className="flex justify-center space-x-4">
                 <button 
-                  onClick={() => handleDemoLogin('admin')}
-                  className="px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDemoLogin('admin');
+                  }}
+                  type="button" 
+                  className="px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 relative z-20"
                 >
                   Admin Demo
                 </button>
                 <button 
-                  onClick={() => handleDemoLogin('engineer')}
-                  className="px-4 py-2 bg-green-600 text-white text-sm rounded-md hover:bg-green-700"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDemoLogin('engineer');
+                  }}
+                  type="button"
+                  className="px-4 py-2 bg-green-600 text-white text-sm rounded-md hover:bg-green-700 relative z-20"
                 >
                   Engineer Demo
                 </button>
                 <button 
-                  onClick={() => handleDemoLogin('energy')}
-                  className="px-4 py-2 bg-purple-600 text-white text-sm rounded-md hover:bg-purple-700"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDemoLogin('energy');
+                  }}
+                  type="button"
+                  className="px-4 py-2 bg-purple-600 text-white text-sm rounded-md hover:bg-purple-700 relative z-20"
                 >
                   Energy Demo
                 </button>
