@@ -46,28 +46,5 @@ Demo accounts are available in the application's login screen for testing differ
 - Framer Motion
 - Modern isometric illustrations
 
-## Local Setup
 
-1. Install MongoDB locally
-2. Create a .env file in the root directory with:
-   ```
-   NODE_ENV=development
-   PORT=5501
-   MONGO_URI=mongodb://localhost:27017/digitalbuildings
-   JWT_SECRET=your_secret_key
-   ```
-3. Create a .env file in the frontend directory with:
-   ```
-   PORT=3001
-   ```
-4. Install dependencies:
-   ```
-   npm install
-   cd frontend && npm install
-   ```
-5. Start the application:
-   ```
-   npm run dev
-   ```
-   This will start both the backend server (port 5501) and frontend (port 3001)
 
