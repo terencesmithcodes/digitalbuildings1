@@ -8,6 +8,7 @@ import {
 import LeafMap from "./LeafMap";
 import EquipClassChart from "../../charts/EquipClassChart";
 import EquipTypeChart from "../../charts/EquipTypeChart";
+import MotionCard from "../../motion/MotionCard";
 
 const RightCol = () => {
   const dispatch = useDispatch();
@@ -28,25 +29,36 @@ const RightCol = () => {
     { title: "Home", src: "Home" },
     { title: "Log Out", src: "User" },
   ];
+  
   if (isLoading) {
     return <h1 className="flex flex-row justify-center mr-10 mt-8 w-full"><Loading /></h1>;
   }
+  
   if (isSuccess) {
     return (
       <div className="col-span-2 min-h-[90vh] items-center justify-center flex flex-col w-full">
-        <div className="w-full items-center justify-center flex flex-col px-12 pb-6">
+        <div className="w-full items-center justify-center flex flex-col px-4 sm:px-8 md:px-12 pb-6">
           <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl pb-4">
             Equipment by Class
           </h1>
-          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2 w-[500px] ">
+          
+          <MotionCard 
+            className="items-center justify-center flex flex-col px-4 sm:px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2 w-full max-w-[500px]"
+            delay={0.1}
+          >
             <EquipClassChart />
-          </div>
+          </MotionCard>
+          
           <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl mt-4 pb-2">
             Equipment by Type
           </h1>
-          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2b w-[500px] ">
+          
+          <MotionCard 
+            className="items-center justify-center flex flex-col px-4 sm:px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2 w-full max-w-[500px]"
+            delay={0.3}
+          >
             <EquipTypeChart />
-          </div>
+          </MotionCard>
         </div>
       </div>
     );

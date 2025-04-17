@@ -8,6 +8,7 @@ import {
 import LeafMap from "../facilitydash/LeafMap";
 import EnergyLineChart from "../../charts/EnergyLineChart";
 import CoolHeatChart from "../../charts/CoolHeatChart";
+import MotionCard from "../../motion/MotionCard";
 
 const RightEnergyCol = () => {
   const dispatch = useDispatch();
@@ -33,26 +34,40 @@ const RightEnergyCol = () => {
   }
   if (isSuccess) {
     return (
-      <div className="col-span-3 min-h-[90vh] items-start justify-start flex flex-col w-full pt-12">
-        <div className="w-full items-center justify-center flex flex-col px-12 pb-4 ">
-          <h1 className="font-bold text-indigo-600 text-xl  pb-4 ">
+      <div className="col-span-3 min-h-[90vh] items-start justify-start flex flex-col w-full pt-8">
+        <div className="w-full items-center justify-center flex flex-col px-4 sm:px-8 md:px-12 pb-4">
+          <h1 className="font-bold text-indigo-600 text-xl pb-4">
             Building Location
           </h1>
-          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-8 w-full ">
+          
+          <MotionCard 
+            className="items-center justify-center flex flex-col px-4 sm:px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-4 w-full"
+            delay={0.1}
+          >
             <LeafMap />
-          </div>
-          <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl mt-4 pb-2">
+          </MotionCard>
+          
+          <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl mt-8 pb-2">
             Annual Avoidable Cost
           </h1>
-          <div className="items-center justify-center flex flex-col px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2b w-[900px] ">
+          
+          <MotionCard 
+            className="items-center justify-center flex flex-col px-4 sm:px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2 w-full max-w-[900px] overflow-x-auto"
+            delay={0.3}
+          >
             <EnergyLineChart />
-          </div>
+          </MotionCard>
+          
           <h1 className="font-bold text-indigo-600 text-xl xl:text-2xl mt-8 pb-2">
             Annual Heating/Cool Avoidable Cost
           </h1>
-          <div className="items-center justify-center flex flex-col px-6 pt-10 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2b w-[900px] ">
+          
+          <MotionCard 
+            className="items-center justify-center flex flex-col px-4 sm:px-6 pt-8 pb-4 border-2 border-feay-200 shadow-xl rounded-xl mt-2 w-full max-w-[900px] overflow-x-auto"
+            delay={0.5}
+          >
             <CoolHeatChart />
-          </div>
+          </MotionCard>
         </div>
       </div>
     );
