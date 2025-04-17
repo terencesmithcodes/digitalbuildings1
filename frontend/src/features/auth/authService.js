@@ -89,7 +89,7 @@ const login = async (userData) => {
       
       // Simulate basic password validation (don't do this in production!)
       if (
-        (username === 'admin' && password === 'admin123') ||
+        (username === 'admin' && password === 'Admin_Secure_P@ss2025!') ||
         (username === 'demo' && password === 'demo123') ||
         (username === 'energy' && password === 'energy123') ||
         // For demo purposes, allow any "demo" password that's at least 6 chars

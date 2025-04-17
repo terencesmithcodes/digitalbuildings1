@@ -87,7 +87,7 @@ const LoginForm = () => {
     let credentials = { username: 'demo', password: 'demo123' };
     
     if (role === 'admin') {
-      credentials = { username: 'admin', password: 'admin123' };
+      credentials = { username: 'admin', password: 'Admin_Secure_P@ss2025!' };
     } else if (role === 'energy') {
       credentials = { username: 'energy', password: 'energy123' };
     }
