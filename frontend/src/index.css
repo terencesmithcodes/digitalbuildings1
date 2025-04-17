@@ -1,14 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.025em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
 code {
@@ -16,10 +25,29 @@ code {
     monospace;
 }
 
-
 @layer components {
   .nav-icon {
     @apply w-6 h-6 cursor-pointer
+  }
+  
+  .heading-xl {
+    @apply text-4xl sm:text-5xl md:text-6xl font-bold;
+  }
+  
+  .heading-lg {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold;
+  }
+  
+  .heading-md {
+    @apply text-2xl sm:text-3xl font-bold;
+  }
+  
+  .body-lg {
+    @apply text-lg sm:text-xl leading-relaxed;
+  }
+  
+  .body-md {
+    @apply text-base sm:text-lg leading-relaxed;
   }
 }
 
@@ -31,6 +59,8 @@ code {
     button {
         @apply text-white border bg-indigo-600 border-indigo-600
         hover:bg-transparent hover:text-indigo-600 rounded-md
+        py-3 px-6 font-medium transition-all duration-200 shadow-md
+        hover:shadow-lg
     }
 }
 
