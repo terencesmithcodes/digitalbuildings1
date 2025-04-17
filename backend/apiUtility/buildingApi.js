@@ -1,118 +1,99 @@
-const axios = require('axios')
 const asyncHandler = require('express-async-handler')
 
-const Building = require('../models/buildingModel')
+// Import mock data
+const buildingsData = require('../models/data/buildingData')
+const equipmentClassesData = require('../models/data/equipmentClassesData')
+const equipmentTypesData = require('../models/data/equipmentTypesData')
+const equipmentData = require('../models/data/equipmentData')
+const analysesData = require('../models/data/analysesData')
 
-
-const URL = 'https://rest.buildingsapi.net/core-base/Buildings/'
-const URLA = 'https://rest.buildingsapi.net/core-base/analyses/'
-
-valHeader = {
-  'Content-Type' : 'application/json',
-  'Ocp-Apim-Subscription-Key': process.env.OCP_KEY
-}
-
+// Cache object for simulating real API caching
 const cache = {};
 
-const getBuilding = asyncHandler(async(buildingNum)=>{
+// Mock API functions that return the local data instead of making external API calls
+const getBuilding = asyncHandler(async(buildingNum) => {
+  // Find the building by ID
+  const building = buildingsData.filter(b => b.BuildingID === buildingNum)
+  
   if (!cache[buildingNum]) {
-    const response = await axios.get(URL + buildingNum,{
-      headers: valHeader
-    })
-    cache[buildingNum] = response.data
+    // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 300))
+    cache[buildingNum] = building
   }
 
   return cache[buildingNum]
 })
 
-const getAllBuildings = asyncHandler(async()=>{
-  const response = await axios.get(URL,{
-    headers: valHeader
-  })
-  return response.data
+const getAllBuildings = asyncHandler(async() => {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 300))
+  return buildingsData
 })
 
-// const getBuilding = asyncHandler(async(buildingNum)=>{
-//   const building = await Building.findOne({buildingId: buildingNum})
-
-//   return building
-// })
-
-
-const getBuildingPoints = asyncHandler(async(buildingNum)=>{
-  const response = await axios.get(URL + buildingNum + '/points',{
-    headers: valHeader
-  })
-  return response.data
+const getBuildingPoints = asyncHandler(async(buildingNum) => {
+  // This would typically return points data
+  // For mock, we'll return an empty array or you can create mock points data
+  await new Promise(resolve => setTimeout(resolve, 300))
+  return [{ Points: [] }]
 })
 
-const getAnalyses = asyncHandler(async()=>{
-  const respone = await axios.get(URLA,{
-    headers: valHeader
-  })
-  return respone.data
+const getAnalyses = asyncHandler(async() => {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 300))
+  return analysesData
 })
 
-
-// const getBuildingTypes = asyncHandler(async(req, res)=>{
-//   const response = await axios.get(URLTYPES,{
-//     headers: valHeader
-//   })
-//   res.status(200).json(response.data)
-// })
-
-
-
-const getBuildingEquipment = asyncHandler(async(buildingNum)=>{
-  const response = await axios.get(URL + buildingNum + '/equipment',{
-    headers: valHeader
-  })
-  return response.data
+const getBuildingEquipment = asyncHandler(async(buildingNum) => {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 300))
+  return equipmentData
 })
 
-const getBuildingEquipmentClasses = asyncHandler(async(buildingNum)=>{
-  const response = await axios.get(URL + buildingNum + '/equipmentclasses',{
-    headers: valHeader
-  })
-  return response.data
+const getBuildingEquipmentClasses = asyncHandler(async(buildingNum) => {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 300))
+  return equipmentClassesData
 })
 
-const getBuildingEquipmentClass = asyncHandler(async(req, res)=>{
-  console.log(req.params.classId)
-  const response = await axios.get(URL + req.params.id + '/equipmentclasses?classID=' + req.params.classId,{
-    headers: valHeader
-  })
-  return response.data
+const getBuildingEquipmentClass = asyncHandler(async(req, res) => {
+  const classId = req.params.classId
+  // Filter equipment by class
+  const matchingEquipment = equipmentData[0].Equipment.filter(
+    e => e.EquipmentType.EquipmentClassID === classId
+  )
+  await new Promise(resolve => setTimeout(resolve, 300))
+  return [{ Equipment: matchingEquipment }]
 })
 
-const getBuildingEquipmentTypes = asyncHandler(async(buildingNum)=>{
-  const response = await axios.get(URL + buildingNum + '/equipmenttypes',{
-    headers: valHeader
-  })
-  return response.data
+const getBuildingEquipmentTypes = asyncHandler(async(buildingNum) => {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 300))
+  return equipmentTypesData
 })
 
-const getBuildingEquipmentType = asyncHandler(async(req, res)=>{
-  const response = await axios.get(URL + req.params.id + '/equipment?typeID=' + req.params.typeId,{
-    headers: valHeader
-  })
-  return response.data
+const getBuildingEquipmentType = asyncHandler(async(req, res) => {
+  const typeId = req.params.typeId
+  // Filter equipment by type
+  const matchingEquipment = equipmentData[0].Equipment.filter(
+    e => e.EquipmentType.EquipmentTypeID === typeId
+  )
+  await new Promise(resolve => setTimeout(resolve, 300))
+  return [{ Equipment: matchingEquipment }]
 })
 
-const getBuildingEquipmentPoints = asyncHandler(async(buildingNum)=>{
-  const response = await axios.get(URL + buildingNum + '/equipmentpoints',{
-    headers: valHeader
-  })
-  return response.data
+const getBuildingEquipmentPoints = asyncHandler(async(buildingNum) => {
+  // This would typically return equipment points data
+  // For mock, we'll return an empty array or you can create mock points data
+  await new Promise(resolve => setTimeout(resolve, 300))
+  return [{ EquipmentPoints: [] }]
 })
 
-const getBuildingTaskRecords = asyncHandler(async(buildingNum) =>{
-  const respone = await axios.get(URL + buildingNum + '/taskrecords', {
-    headers: valHeader
-  })
-  return respone.data
+const getBuildingTaskRecords = asyncHandler(async(buildingNum) => {
+  // This would typically return task records
+  // For mock, we'll return an empty array or you can create mock task records
+  await new Promise(resolve => setTimeout(resolve, 300))
+  return [{ TaskRecords: [] }]
 })
-
 
 module.exports = {
   getBuilding,

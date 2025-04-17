@@ -9,11 +9,8 @@ const Selector = ({transfer}) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
     const options = [
-    { label: 'Select Building', value: '18175' },
-    { label: 'MIT', value: '1' },
-    { label: 'Rudin', value: '5458' },
-    { label: 'Hines', value: '5625' },
-    { label: 'Alexandria', value: '5783' },
+    { label: 'Select Building', value: '' },
+    { label: 'Corporate HQ Building', value: '1' },
   ]
   const {user} = useSelector((state) => state.auth);
 
@@ -33,18 +30,24 @@ const Selector = ({transfer}) => {
     // setValue(event.target.value);
   };
 return (
-  <div >
-    <label className='h-[500px]'>
-      
-      <select
-        className="flex w-[200px] rounded-xl mt-1 mb-4 relative p-6 text-lg text-indigo-600 bg-gray-100"
-        // value={value}
+  <div className="w-full max-w-xs">
+    <label className="block w-full">
+      <div className="relative">
+        <select
+        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-base font-medium text-gray-700 bg-white shadow-sm appearance-none cursor-pointer"
         onChange={handleChange}
+        defaultValue=""
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>{option.label}</option>
         ))}
       </select>
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+          </svg>
+        </div>
+      </div>
     </label>
   </div>
 );
