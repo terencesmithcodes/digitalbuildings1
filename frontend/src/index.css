@@ -71,4 +71,9 @@ code {
   .animation-delay-4000 {
     animation-delay: 4s;
   }
+  
+  /* Login form utilities */
+  .login-button {
+    @apply !bg-indigo-600 hover:!bg-indigo-700 !text-white !pointer-events-auto;
+  }
 }
