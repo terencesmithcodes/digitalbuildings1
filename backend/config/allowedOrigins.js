@@ -1,8 +1,6 @@
 const allowedOrigins = [
-  'http://localhost:3000/',
-  'http://localhost:5500/',
-  'https://git.heroku.com/digitalbuildingtwoamigos.git',
-  'https://digitalbuildingtwoamigos.herokuapp.com',
+  'http://localhost:3001',
+  'http://localhost:5501'
 ]
 
 module.exports = allowedOrigins

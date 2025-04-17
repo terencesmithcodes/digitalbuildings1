@@ -20,16 +20,19 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 app.use((req, res, next) => {
-  const request = {
-    httpRequest: {
-      body: req.body,
-      query: req.query,
-      userAgent: req.headers['user-agent'],
-    },
-  };
-
-  return next();
-  
+  try {
+    const request = {
+      httpRequest: {
+        body: req.body,
+        query: req.query,
+        userAgent: req.headers['user-agent'],
+      },
+    };
+    return next();
+  } catch (error) {
+    console.error('Middleware error:', error);
+    return next(error);
+  }
 })
 app.use('/api/notes', require('./routes/noteRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
