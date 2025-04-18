@@ -28,6 +28,11 @@ README.personal.md
 setup-personal-git.sh
 test.txt
 
+# Credentials and sensitive information
+DEMO_CREDENTIALS.md
+backend/scripts/updatePasswords.js
+backend/scripts/README.md
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

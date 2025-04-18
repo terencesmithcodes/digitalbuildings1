@@ -74,20 +74,20 @@ const LoginForm = () => {
   };
   
   const handleDemoLogin = (role) => {
-    // Demo credentials for different roles
-    let credentials = { username: 'demo', password: 'demo123' };
+    // Demo credentials with usernames only - passwords removed for security
+    let credentials = { username: 'demo', password: '' };
     
     if (role === 'admin') {
-      credentials = { username: 'admin', password: 'Admin_Secure_P@ss2025!' };
+      credentials = { username: 'admin', password: '' };
     } else if (role === 'energy') {
-      credentials = { username: 'energy', password: 'energy123' };
+      credentials = { username: 'energy', password: '' };
     }
     
-    // Set form data 
-    setFormData(credentials);
+    // Inform user to enter their password
+    toast.info(`Please enter your password for ${role} login`);
     
-    // Dispatch login immediately
-    dispatch(login(credentials));
+    // Set form data only - don't dispatch login since we need password
+    setFormData(credentials);
   };
 
   return (
@@ -193,9 +193,10 @@ const LoginForm = () => {
             </div>
 
             <div className="mt-4 text-center text-xs text-gray-500 space-y-1">
-              <p><strong>Admin:</strong> admin / Admin_Secure_P@ss2025!</p>
-              <p><strong>Engineer:</strong> demo / demo123</p>
-              <p><strong>Energy:</strong> energy / energy123</p>
+              <p><strong>Admin:</strong> admin</p>
+              <p><strong>Engineer:</strong> demo</p>
+              <p><strong>Energy:</strong> energy</p>
+              <p className="mt-2 italic">Contact administrator for passwords</p>
             </div>
           </div>
         )}
