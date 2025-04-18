@@ -98,9 +98,9 @@ const login = async (userData) => {
       // For GitHub Pages demo, we use hardcoded credentials
       // In production, this would be a bcrypt compare or similar
       const isValidCredential = (
-        (username === 'admin' && password === 'Admin_Secure_P@ss2025!') ||
-        (username === 'demo' && password === 'demo123') ||
-        (username === 'energy' && password === 'energy123')
+        (username === 'admin' && password === 'DBAdmin_2025!') ||
+        (username === 'demo' && password === 'EngineerUser_2025!') ||
+        (username === 'energy' && password === 'EnergyUser_2025!')
       );
       
       if (isValidCredential) {
