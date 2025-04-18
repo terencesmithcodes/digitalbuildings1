@@ -17,8 +17,7 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   
-  // Demo credentials for GitHub Pages
-  const isGitHubPages = window.location.hostname.includes('github.io');
+  // No demo credentials or GitHub Pages check needed
   
   const { username, password } = formData;
   const { user, isLoading, isError, isSuccess, message } = useSelector(
@@ -73,22 +72,7 @@ const LoginForm = () => {
     dispatch(login(userData));
   };
   
-  const handleDemoLogin = (role) => {
-    // Demo credentials with usernames only - passwords removed for security
-    let credentials = { username: 'demo', password: '' };
-    
-    if (role === 'admin') {
-      credentials = { username: 'admin', password: '' };
-    } else if (role === 'energy') {
-      credentials = { username: 'energy', password: '' };
-    }
-    
-    // Inform user to enter their password
-    toast.info(`Please enter your password for ${role} login`);
-    
-    // Set form data only - don't dispatch login since we need password
-    setFormData(credentials);
-  };
+  // Demo login functionality removed
 
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
@@ -165,41 +149,7 @@ const LoginForm = () => {
           </div>
         </div>
 
-        {isGitHubPages && (
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <p className="text-center text-sm font-medium text-gray-700 mb-4">Demo Accounts</p>
-            <div className="grid grid-cols-3 gap-3">
-              <button
-                type="button"
-                onClick={() => handleDemoLogin('admin')}
-                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
-              >
-                Admin
-              </button>
-              <button
-                type="button"
-                onClick={() => handleDemoLogin('engineer')}
-                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none"
-              >
-                Engineer
-              </button>
-              <button
-                type="button"
-                onClick={() => handleDemoLogin('energy')}
-                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none"
-              >
-                Energy
-              </button>
-            </div>
-
-            <div className="mt-4 text-center text-xs text-gray-500 space-y-1">
-              <p><strong>Admin:</strong> admin</p>
-              <p><strong>Engineer:</strong> demo</p>
-              <p><strong>Energy:</strong> energy</p>
-              <p className="mt-2 italic">Contact administrator for passwords</p>
-            </div>
-          </div>
-        )}
+        {/* Demo account section removed */}
       </div>
     </div>
   );
